@@ -1,0 +1,11 @@
+.container {
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      height: inherit;
+      
+}
+
+.login-text {
+    font-size: 3rem;
+}

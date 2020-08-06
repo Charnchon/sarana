@@ -1,5 +1,7 @@
 'use strict'
 
+const AuthController = require('../app/Controllers/Http/AuthController');
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -16,4 +18,11 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.on('/').render('home')
+// Route.on("/login").render("login")
+
+Route.get("/login", "AuthController.login");
+Route.post('login',"AuthController.loginUser" );
+
+Route.get("/register","AuthController.register");
+    // const { view,request , response } = context;
