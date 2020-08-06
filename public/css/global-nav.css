@@ -43,8 +43,8 @@
 }
 
 .nav-login-component {
-    background-color: #c9c9c9;
-    border: 1px solid  #c9c9c9;
+    background-color: #8f8f8f;
+    border: 1px solid  #8f8f8f;
     border-radius: 20px;
     padding: 5px 15px;
     margin: 0;
@@ -59,7 +59,7 @@
     padding: 5px 15px;
     margin: 0;
     font-size: 1.15rem;
-    color: #c9c9c9;
+    color: #8f8f8f;
     outline: none;
     cursor: pointer;
 }
