@@ -1,9 +1,12 @@
-  .container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .hero-text{
+.container {
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      height: inherit;
+      margin-top: 3rem;
+      
+}
+
+.login-text {
     font-size: 3rem;
-  }
+}
