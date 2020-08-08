@@ -1,0 +1,36 @@
+@layout("layout")
+
+@section("style-section")
+    {{ style("css/login")}}
+@endsection
+
+@section("content")
+    <div class="container">
+    <form action="{{ route("/register") }}" method="post">
+        {{ csrfField() }}
+
+      <label for="firstname">firstname</label>
+      <input type="text" name="firstname" id="firstname">
+
+      <label for="lastname">lastname</label>
+      <input type="text" name="lastname" id="lastname">
+
+      <label for="age">age</label>
+      <input type="number" name="age" id="age">
+
+      <label for="gender">gender</label>
+      <input type="text" name="gender" id="gender">
+      
+      <label for="email">e-mail</label>
+      <input type="text" name="email" id="email">
+
+      <label for="username">username</label>
+      <input type="username" name="username">
+
+      <label for="password">password</label>
+      <input type="password" name="password">
+      
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+@endsection
