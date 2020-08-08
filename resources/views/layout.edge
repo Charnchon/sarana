@@ -1,38 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    {{style("css/reset")}}
-    @include("global-css")
-
-    @!section("style-section")
-
-    <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '1120643878329329',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v8.0'
-      });
-        
-      FB.AppEvents.logPageView();   
-        
-    };
-  
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
-
 </head>
 <body>
     <div class="fb-root">
@@ -40,9 +5,124 @@
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v8.0&appId=1120643878329329&autoLogAppEvents=1" nonce="FMeIVSpE"></script>
     </div>
     
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '1120643878329329',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v8.0'
+          });
+            
+          FB.AppEvents.logPageView();   
+            
+        };
+      
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     {{script("js/index")}}
     @!section("content")
     
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    {{style("css/reset")}}
+    {{style("css/global-nav")}}
+    {{style("css/global-footer")}}
+    @!section("style-section")
+    @include("global-css")
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="top-navbar">
+            <div class="nav-logo nav-left-component">logo</div>
+            <div class="nav-right-component nav-component">
+                <div class="nav-type">
+                    <div class="blog-type-text">
+                        Wolrd
+                    </div>
+                    <div class="blog-type-text">
+                        Tech
+                    </div>
+                    <div class="blog-type-text">
+                        Sci
+                    </div>
+                    <div class="blog-type-text">
+                        Business
+                    </div>
+                    <div class="nav-login">
+                    <div class="nav-login-component">
+                        login
+                    </div>   
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="bottom-navbar">
+            <div class="nav-type">
+                <div class="blog-type-text">
+                    Wolrd
+                </div>
+                <div class="blog-type-text">
+                    Tech
+                </div>
+                <div class="blog-type-text">
+                    Sci
+                </div>
+                <div class="blog-type-text">
+                    Business
+                </div>
+            </div>
+        </div>
+        
+    </header>
+
+    <div class="nav-box"></div>
+
+    @!section("content")
+
+    <div class="footer">
+        <div class="content-footer-block">
+            <div class="content-footer-component">
+                <div class="context-footer-content head-content-text">
+                    Contects
+                </div>
+                <div class="context-footer-content">
+                    0833633344
+                </div>
+                <div class="context-footer-content">
+                    xxxxxxxxxx@gmail.com
+                </div>
+            </div>
+            <div class="content-footer-component">
+                <div class="context-footer-content head-content-text">
+                    Adress
+                </div>
+                <div class="context-footer-content">
+                    Chiang mai steet 015 Sutep
+                </div>
+            </div>
+            <div class="content-footer-component">
+                <div class="context-footer-content head-content-text">
+                    Sign up for our newsletter
+                </div>
+                <div class="context-footer-content-input-block">
+                    <input class="context-footer-content-input" type="text" placeholder="xxxxxxxxxx@gmail.com">
+                    <button class="context-footer-content-button" type="submit">done</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="credit-footer-block">
+            All rights reserved, 2020
+        </div>
+    </div>
 
 </body>
 </html>
