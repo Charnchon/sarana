@@ -4,7 +4,9 @@
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v8.0&appId=1120643878329329&autoLogAppEvents=1" nonce="FMeIVSpE"></script>
     </div>
-    
+
+    {{script("js/index")}}
+
     <script>
         window.fbAsyncInit = function() {
           FB.init({
@@ -26,9 +28,6 @@
            fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-
-    {{script("js/index")}}
-    @!section("content")
     
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     {{style("css/reset")}}
@@ -64,6 +63,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="bottom-navbar">
             <div class="nav-type">
                 <div class="blog-type-text">
