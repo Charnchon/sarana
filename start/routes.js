@@ -31,3 +31,4 @@ Route.get("/index" , "AuthController.index")
 Route.get("/slideshow" , "AuthController.slideshow")
 
 Route.get("/addnews" , "AuthController.addnews")
+Route.post("/addnews" , "AuthController.addNews")
