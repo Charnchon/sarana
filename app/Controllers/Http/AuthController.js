@@ -32,6 +32,11 @@ class AuthController {
     addnews({view}) {
         return view.render("addnews",{})
     }
+    async registerUser({request , response}) { 
+        const {firstname , lastname , username , password , email} = request.body;
+        await Database.from("users").insert({firstname , lastname , username , password , email}) /
+        return response.redirect("/")
+    }
 }
 
 module.exports = AuthController
