@@ -7,6 +7,7 @@ class NewsSchema extends Schema {
   up () {
     this.create('news', (table) => {
       table.increments()
+      table.string("username", 80).notNullable().unique()
       table.string("newsTopic", 254).unique()
       table.string("newsContent", 10000)
       table.string("newsCg", 80).notNullable()
