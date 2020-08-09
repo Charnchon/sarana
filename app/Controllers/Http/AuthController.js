@@ -10,7 +10,15 @@ class AuthController {
     async loginUser ({view , request , response}) {
         const {username , password} = request.body
         const userDB = await Database.from("profiles").select("username")
+        const passDB = await Database.from("profiles").select("password")
         console.log(userDB)
+        console.log(passDB)
+        for(let i = 0 ; i < userDB.length ; i++) {
+            if(username == userDB[0] && password == passDB[0])
+            {
+                return response.redirect("/register")
+            }
+        }
 
     }
 
