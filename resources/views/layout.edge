@@ -30,10 +30,10 @@
     </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
-    {{style("css/reset")}}
-    {{style("css/global-nav")}}
-    {{style("css/global-footer")}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     @!section("style-section")
+    
     @include("global-css")
 </head>
 <body>
@@ -42,48 +42,31 @@
         <div class="top-navbar">
             <div class="nav-logo nav-left-component">logo</div>
             <div class="nav-right-component nav-component">
-                <div class="nav-type">
-                    <div class="blog-type-text">
-                        Wolrd
-                    </div>
-                    <div class="blog-type-text">
-                        Tech
-                    </div>
-                    <div class="blog-type-text">
-                        Sci
-                    </div>
-                    <div class="blog-type-text">
-                        Business
-                    </div>
-                    <div class="nav-login">
-                    <div class="nav-login-component">
-                        login
-                    </div>   
-                    </div> 
+                <div class="nav-right-component-home-tag">
+                    Home
                 </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Categories <i class="fas fa-angle-down"></i> </button>
+                    <div class="dropdown-content">
+                        <a href="#">Wolrd</a>
+                        <a href="#">Tech</a>
+                        <a href="#">Sci</a>
+                        <a href="#">Business</a>
+                    </div>
+                </div>
+                <div class="nav-login-component">
+                    Login
+                </div>   
             </div>
-        </div>
-        
-        <div class="bottom-navbar">
-            <div class="nav-type">
-                <div class="blog-type-text">
-                    Wolrd
-                </div>
-                <div class="blog-type-text">
-                    Tech
-                </div>
-                <div class="blog-type-text">
-                    Sci
-                </div>
-                <div class="blog-type-text">
-                    Business
-                </div>
-            </div>
-        </div>
+        </div> 
         
     </header>
 
     <div class="nav-box"></div>
+
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v8.0&appId=632755014023180&autoLogAppEvents=1" nonce="yIwx0dA5"></script>
+
 
     @!section("content")
 
