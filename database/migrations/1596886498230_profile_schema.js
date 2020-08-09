@@ -11,10 +11,11 @@ class ProfileSchema extends Schema {
       table.string("lastname", 80).notNullable()
       table.integer("age", 80).notNullable()
       table.string("gender", 80).notNullable()
-      table.string("userID", 80).notNullable().unique()
+      //table.string("userID", 80).notNullable().unique()
       table.string("username", 80).notNullable().unique()
       table.string("email", 254).notNullable().unique()
       table.string("password", 60).notNullable()
+      //table.string("confirmPassw", 60).notNullable()
       table.timestamps()
     })
   }
