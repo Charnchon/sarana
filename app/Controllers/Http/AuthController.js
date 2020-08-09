@@ -1,39 +1,40 @@
 'use strict'
 
-const Database = use('Database');
+const Database = use("Database");
 
 class AuthController {
-    async login ({view, request , response}) {
-
-        // const users = await  Database.select("name","age").from("user");
-        // const name = "Charnchon";
-        // const age = 155;
-        // const friends = ["bot","boat", "boy" , "boss"];
-        // const address ={
-        //     postcode: "10140";
-        //     country: "Thailand";
-        // }
-        return view.render("login");
+    login ({view}) {
+        //const user = await.Database.from('profiles')
+        return view.render("login",{})
+    }
+    async loginUser ({view , request , response}) {
+        const {username , password} = request.body
+        //await Database.table("users").insert({email , password})
+        //await Database.insert({email , password , username})
     }
 
-    loginUser({view, request , response}) {
-        const people = request.body;
-        console.log(people)
-        return response.redirect("/login");
+    register({view}) {
+        return view.render("register",{})
+    }
+    async registerUser({request , response}) { // * --> async
+        const {firstname , lastname , username , password , email} = request.body;
+        await Database.from("users").insert({firstname , lastname , username , password , email}) // yield --> await
+        //await Database.insert({email,password}).into("users")
+        return response.redirect("/login")
     }
 
-    register ({view}) {
-        return view.render("register");
+    index({view}) {
+        return view.render("index",{})
     }
-
-    home (context) {
-        return view.render("home");
+    slideshow ({view}) {
+        return view.render("slideshow" , {})
     }
-
+    addnews({view}) {
+        return view.render("addnews",{})
+    }
 }
 
 module.exports = AuthController
 
-
-
-
+//SELECT * FROM 'user'
+//WHERE 'name' = 'John';

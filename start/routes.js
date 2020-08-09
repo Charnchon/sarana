@@ -19,10 +19,15 @@ const AuthController = require('../app/Controllers/Http/AuthController');
 const Route = use('Route')
 
 Route.on('/').render('home')
-// Route.on("/login").render("login")
+//Route.on('/login').render('login')
+Route.get("/login", "AuthController.login")
+Route.post("/login" , "AuthController.loginUser")
 
-Route.get("/login", "AuthController.login");
-Route.post('login',"AuthController.loginUser" );
+Route.get("/register" , "AuthController.register")
+Route.post("/register" , "AuthController.registerUser")
+Route.post("/api/register" , "AuthController.registerUser")
 
-Route.get("/register","AuthController.register");
-    // const { view,request , response } = context;
+Route.get("/index" , "AuthController.index")
+Route.get("/slideshow" , "AuthController.slideshow")
+
+Route.get("/addnews" , "AuthController.addnews")
