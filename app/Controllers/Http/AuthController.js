@@ -3,14 +3,15 @@
 const Database = use("Database");
 
 class AuthController {
+
     login ({view}) {
-        //const user = await.Database.from('profiles')
-        return view.render("login",{})
+        return view.render("login" , {})
     }
     async loginUser ({view , request , response}) {
         const {username , password} = request.body
-        //await Database.table("users").insert({email , password})
-        //await Database.insert({email , password , username})
+        const userDB = await Database.from("profiles").select("username")
+        console.log(userDB)
+
     }
 
     register({view}) {
