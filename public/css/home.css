@@ -1,5 +1,49 @@
-.box { 
+.box {
     height: 1800px;
     width: 100%;
+}
+.show-image {
+    width: 100%;
+    height: auto;
+}
+
+.articles-block {
+    margin: 150px 200px;
+}
+
+.type-articles-block {
+
+}
+
+.articles-lebel {
+    font-size: 2.5rem;
+    margin: 0 0 80px 0;
+}
+
+.news-component {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.news-content-show {
+    margin: 3%;
+    width: 255px;
+}
+
+.news-content-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.news-content-lebel {
+    font-size: 1.5rem;
+    margin: 10px 0 0 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.news-content-date {
+    font-size: 0.8rem;
+    color: #636363;
+    margin: 12px 0 0 8px;
 }
 
