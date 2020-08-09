@@ -17,8 +17,8 @@ class AuthController {
         return view.render("register",{})
     }
     async registerUser({request , response}) { // * --> async
-        const {firstname , lastname , username , password , email} = request.body;
-        await Database.from("users").insert({firstname , lastname , username , password , email}) // yield --> await
+        const {firstname , lastname , username , password , email, age, gender} = request.body;
+        await Database.from("profiles").insert({firstname , lastname , username , password , email, age, gender}) // yield --> await
         //await Database.insert({email,password}).into("users")
         return response.redirect("/login")
     }
