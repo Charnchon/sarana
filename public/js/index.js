@@ -6,9 +6,7 @@ function checkLoginState() {
 async function statusChangeCallback(response) {
     const { userID, accessToken } = response.authResponse;
     const result = await fetch(`https://graph.facebook.com/v8.0/${userID}?fields=picture,id,name&access_token=${accessToken}`, { method: "GET" })
-
     const data = await result.json();
-    console.log(data)
     const _csrf = document.getElementsByName("_csrf")[0].value
     const form = new FormData()
     form.append("username", data.id)

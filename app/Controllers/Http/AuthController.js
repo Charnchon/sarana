@@ -3,26 +3,23 @@
 const Database = use("Database");
 
 class AuthController {
-    async login ({view , request , response}) {
+    login ({view}) {
         //const user = await.Database.from('profiles')
         return view.render("login",{})
     }
-    loginUser ({view , request , response}) {
-        const {email , password} = request.body
+    async loginUser ({view , request , response}) {
+        const {username , password} = request.body
         //await Database.table("users").insert({email , password})
         //await Database.insert({email , password , username})
-        return response.redirect("login" , {})
-        // return response.redirect("/login")
     }
 
     register({view}) {
         return view.render("register",{})
     }
     async registerUser({request , response}) { // * --> async
-        const {email , password , username} = request.body;
-        await Database.from("users").insert({email,password,username}) // yield --> await
+        const {firstname , lastname , username , password , email} = request.body;
+        await Database.from("users").insert({firstname , lastname , username , password , email}) // yield --> await
         //await Database.insert({email,password}).into("users")
-
         return response.redirect("/login")
     }
 
