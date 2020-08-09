@@ -10,3 +10,8 @@
 .login-text {
     font-size: 3rem;
 }
+
+.form-content {
+    padding-bottom: 2rem;
+    row-gap: 2;
+}

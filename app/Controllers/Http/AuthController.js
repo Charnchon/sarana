@@ -32,6 +32,9 @@ class AuthController {
     slideshow ({view}) {
         return view.render("slideshow" , {})
     }
+    addnews({view}) {
+        return view.render("addnews",{})
+    }
 }
 
 module.exports = AuthController
