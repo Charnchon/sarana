@@ -2,6 +2,11 @@
     --font: #333;
   }
 
+a {
+  text-decoration: none;
+  color: unset;
+}
+
 .nav-box {
     width: 100%;
     height: 60px;
