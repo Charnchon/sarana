@@ -74,10 +74,14 @@
                         Login <i class="fas fa-sign-in-alt"></i>
                     </a>
                     @elseif(token == 1)
-                    <button type="submit" class="logout-submit">
-                        LOGOUT
-                    </button>
-                    <h1>{{currentUsername}}</h1>
+                    <div class="user-container">
+                        <div class="navbar-usernmae-layout">
+                            <h1>{{currentUsername}}</h1>
+                        </div>
+                        <button type="submit" class="logout-submit">
+                            LOGOUT
+                        </button>
+                    </div>
                     @endif
                 </form>
             </div>
