@@ -3,6 +3,9 @@
 {{ style("css/login")}}
 @endsection
 @section("content")
+    <script>
+        let checkToken = request.authController.loginUser(token)
+    </script>
     <div class="container">
     <form method="POST" action="{{route('/login')}}">
         {{ csrfField() }}
@@ -11,6 +14,11 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password">
             <button type="submit">Submit</button>
+            @if(checkToken == 1)
+                <h1>Hello World</h1>
+            @else
+                <h1>failed</h1>
+            @endif
         </form>
     </div>
     <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" onlogin="checkLoginState()"></div>
