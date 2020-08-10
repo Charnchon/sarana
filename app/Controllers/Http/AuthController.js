@@ -6,16 +6,18 @@ let token = 0;
 class AuthController {
 
     login ({view}) {
-        return view.render("login" , {})
+        return view.render("login" , {token})
     }
     async loginUser ({request , response}) {
         const {username , password} = request.body
         const dataDB = await Database.from("profiles").select("username","password").where({username,password})
         if(dataDB.length) {
-            return response.redirect("/login" , token=1)
+            token = 1;
+            return response.redirect('/login')
         }
         else {
-            return response.redirect("/login" , token = 0)
+            token = 0;
+            return response.redirect('/login')
         }
     }
 
