@@ -39,8 +39,8 @@ class AuthController {
         return view.render("addnews",{})
     }
     async addNews({request , response}) { 
-        const {newsTopic , newsContent , newsCg, writer, username, newsDate } = request.body;
-        await Database.from("new").insert({newsTopic , newsContent , newsCg, writer, username, newsDate}) 
+        const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
+        await Database.from("new").insert({news_Topic , news_Content , news_Cg, news_Date}) 
         return response.redirect("/login")
     }
 }
