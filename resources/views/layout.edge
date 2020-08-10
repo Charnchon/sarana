@@ -41,10 +41,6 @@
     @include("global-css")
 </head>
 <body>
-
-    {{token}}
-    {{currentUsername}}
-
     <header class="navbar">
         <div class="top-navbar">
             <div class="nav-logo nav-left-component">logo</div>
@@ -71,9 +67,23 @@
                     
                     
                 </div>
-                <a class="nav-login-component" href="/login">
-                    Login <i class="fas fa-sign-in-alt"></i>
-                </a>   
+                <form method="GET" action="{{route('/layout')}}">
+                    {{ csrfField() }}   
+                    @if(token == 0)
+                    <a class="nav-login-component" href="/login">
+                        Login <i class="fas fa-sign-in-alt"></i>
+                    </a>
+                    @elseif(token == 1)
+                    <div class="user-container">
+                        <div class="navbar-usernmae-layout">
+                            <h1>{{currentUsername}}</h1>
+                        </div>
+                        <button type="submit" class="logout-submit">
+                            LOGOUT
+                        </button>
+                    </div>
+                    @endif
+                </form>
             </div>
         </div> 
         

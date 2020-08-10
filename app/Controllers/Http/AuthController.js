@@ -1,8 +1,8 @@
 'use strict'
 
 const Database = use("Database");
-let token = 0;
-let currentUsername = "";
+let token;
+let currentUsername;
 
 class AuthController {
 
@@ -26,8 +26,13 @@ class AuthController {
         }
     }
 
+    logoutUser({response}) {
+        token = 0
+        return response.redirect('/register')
+    }
+
     register({view}) {
-        return view.render("register",{})
+        return view.render("register" , {token , currentUsername})
     }
     async registerUser({request , response}) { // * --> async
         const {firstname , lastname , username , password , email, age, gender} = request.body;
@@ -37,13 +42,13 @@ class AuthController {
     }
 
     index({view}) {
-        return view.render("index",{})
+        return view.render("login" , {token , currentUsername})
     }
     slideshow ({view}) {
-        return view.render("slideshow" , {})
+        return view.render("login" , {token , currentUsername})
     }
     addnews({view}) {
-        return view.render("addnews",{})
+        return view.render("login" , {token , currentUsername})
     }
     async addNews({request , response}) { 
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
