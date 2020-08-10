@@ -1,21 +1,23 @@
 'use strict'
 
 const Database = use("Database");
-const token = 0;
+let token = 0;
 
 class AuthController {
 
     login ({view}) {
-        return view.render("login" , {})
+        return view.render("login" , {token})
     }
     async loginUser ({request , response}) {
         const {username , password} = request.body
         const dataDB = await Database.from("profiles").select("username","password").where({username,password})
         if(dataDB.length) {
-            return response.redirect("/register")
+            token = 1;
+            return response.redirect('/login')
         }
         else {
-            return response.redirect("/login")
+            token = 0;
+            return response.redirect('/login')
         }
     }
 
@@ -39,8 +41,8 @@ class AuthController {
         return view.render("addnews",{})
     }
     async addNews({request , response}) { 
-        const {newsTopic , newsContent , newsCg, writer, username, newsDate } = request.body;
-        await Database.from("new").insert({newsTopic , newsContent , newsCg, writer, username, newsDate}) 
+        const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
+        await Database.from("new").insert({news_Topic , news_Content , news_Cg, news_Date}) 
         return response.redirect("/login")
     }
 }
