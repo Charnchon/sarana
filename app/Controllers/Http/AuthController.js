@@ -2,17 +2,22 @@
 
 const Database = use("Database");
 let token = 0;
+let currentUsername = "";
 
 class AuthController {
 
-    login ({view}) {
-        return view.render("login" , {token})
+    async login ({view}) {
+        // const dataDB = await Database.from("profiles").select("username")
+        // var valueDB = JSON.stringify(dataDB)
+        // console.log(valueDB)
+        return view.render("login" , {token , currentUsername})
     }
     async loginUser ({request , response}) {
         const {username , password} = request.body
         const dataDB = await Database.from("profiles").select("username","password").where({username,password})
         if(dataDB.length) {
             token = 1;
+            currentUsername = username
             return response.redirect('/login')
         }
         else {
