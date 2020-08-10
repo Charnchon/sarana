@@ -45,9 +45,9 @@
         <div class="top-navbar">
             <div class="nav-logo nav-left-component">logo</div>
             <div class="nav-right-component nav-component">
-                <div class="nav-right-component-home-tag">
+                <a class="nav-right-component-home-tag">
                     Home
-                </div>
+                </a>
                 <div class="dropdown">
                     <div class="dropbtn">Categories   <i class="fas fa-angle-down"></i> </div>
                     <div class="dropdown-content">
@@ -58,8 +58,14 @@
                     </div>
                 </div>
                 <div class="nav-icon-block">
-                    <i class="fab fa-facebook nav-icon"></i>
-                    <i class="fab fa-instagram nav-icon"></i>
+                    <a href="https://www.facebook.com/">
+                        <i class="fab fa-facebook nav-icon"></i>
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <i class="fab fa-instagram nav-icon"></i>
+                    </a>
+                    
+                    
                 </div>
                 <form method="GET" action="{{route('/layout')}}">
                     {{ csrfField() }}   

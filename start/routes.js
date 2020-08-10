@@ -19,6 +19,7 @@ const AuthController = require('../app/Controllers/Http/AuthController');
 const Route = use('Route')
 
 Route.on('/').render('home')
+Route.on('/home').render('home')
 //Route.on('/login').render('login')
 Route.get("/login", "AuthController.login")
 Route.post("/login" , "AuthController.loginUser")

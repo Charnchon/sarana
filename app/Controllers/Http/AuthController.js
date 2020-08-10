@@ -53,7 +53,7 @@ class AuthController {
     async addNews({request , response}) { 
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
         await Database.from("new").insert({news_Topic , news_Content , news_Cg, news_Date}) 
-        return response.redirect("/login")
+        return response.redirect("/home")
     }
 }
 
