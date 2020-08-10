@@ -6,6 +6,10 @@ let currentUsername;
 
 class AuthController {
 
+    home({view}) {
+        return view.render("/home" , {token , currentUsername})
+    }
+
     async login ({view}) {
         // const dataDB = await Database.from("profiles").select("username")
         // var valueDB = JSON.stringify(dataDB)
@@ -42,13 +46,13 @@ class AuthController {
     }
 
     index({view}) {
-        return view.render("login" , {token , currentUsername})
+        return view.render("" , {token , currentUsername})
     }
     slideshow ({view}) {
-        return view.render("login" , {token , currentUsername})
+        return view.render("slideshow" , {token , currentUsername})
     }
     addnews({view}) {
-        return view.render("login" , {token , currentUsername})
+        return view.render("addnews" , {token , currentUsername})
     }
     async addNews({request , response}) { 
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
