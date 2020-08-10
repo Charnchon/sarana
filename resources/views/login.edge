@@ -3,9 +3,7 @@
 {{ style("css/login")}}
 @endsection
 @section("content")
-    <script>
-        let checkToken = request.authController.loginUser(token)
-    </script>
+    {{token}}
     <div class="container">
     <form method="POST" action="{{route('/login')}}">
         {{ csrfField() }}
@@ -14,10 +12,10 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password">
             <button type="submit">Submit</button>
-            @if(checkToken == 1)
+            @if(token == 1)
                 <h1>Hello World</h1>
             @else
-                <h1>failed</h1>
+                <h1>Failed
             @endif
         </form>
     </div>
