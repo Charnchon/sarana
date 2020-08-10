@@ -23,6 +23,8 @@ Route.on('/').render('home')
 Route.get("/login", "AuthController.login")
 Route.post("/login" , "AuthController.loginUser")
 
+Route.get("/layout" , "AuthController.logoutUser")
+
 Route.get("/register" , "AuthController.register")
 Route.post("/register" , "AuthController.registerUser")
 Route.post("/api/register" , "AuthController.registerUser")
