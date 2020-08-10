@@ -1,7 +1,7 @@
 'use strict'
 
 const Database = use("Database");
-const token = 0;
+let token = 0;
 
 class AuthController {
 
@@ -12,10 +12,10 @@ class AuthController {
         const {username , password} = request.body
         const dataDB = await Database.from("profiles").select("username","password").where({username,password})
         if(dataDB.length) {
-            return response.redirect("/register")
+            return response.redirect("/login" , token=1)
         }
         else {
-            return response.redirect("/login")
+            return response.redirect("/login" , token = 0)
         }
     }
 
