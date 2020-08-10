@@ -1,25 +1,22 @@
 'use strict'
 
 const Database = use("Database");
+const token = 0;
 
 class AuthController {
 
     login ({view}) {
         return view.render("login" , {})
     }
-    async loginUser ({view , request , response}) {
+    async loginUser ({request , response}) {
         const {username , password} = request.body
-        const userDB = await Database.from("profiles").select("username")
-        const passDB = await Database.from("profiles").select("password")
-        console.log(userDB)
-        console.log(passDB)
-        for(let i = 0 ; i < userDB.length ; i++) {
-            if(username == userDB[0] && password == passDB[0])
-            {
-                return response.redirect("/register")
-            }
+        const dataDB = await Database.from("profiles").select("username","password").where({username,password})
+        if(dataDB.length) {
+            return response.redirect("/register")
         }
-
+        else {
+            return response.redirect("/login")
+        }
     }
 
     register({view}) {
