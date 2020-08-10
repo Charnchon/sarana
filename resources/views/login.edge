@@ -3,21 +3,32 @@
 {{ style("css/login")}}
 @endsection
 @section("content")
-    {{token}}
-    <div class="container">
-    <form method="POST" action="{{route('/login')}}">
-        {{ csrfField() }}
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-            <button type="submit">Submit</button>
-            @if(token == 1)
-                <h1>Hello World</h1>
-            @else
-                <h1>Failed
-            @endif
-        </form>
+    <div class="login-block">
+        <div class="login-background">
+            <div class="login-lebel">USER LOGIN</div>
+            <div class="login-input-block">
+                <form action="">
+                    <div class="input-lebel">
+                        USERNAME
+                    </div>
+                    <input class="input" type="username">
+                    <div class="input-lebel">
+                        PASSWORD
+                    </div>
+                    <input class="input" type="password">
+                    <div class="submit-block">
+                        <div class="login-submit">
+                            LOGIN
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+            <div class="register-block">
+                <div class="register-component">Don't have an Account? </div><div class="register-component register-warb"> Register Now!</div>
+            </div>
+        </div>
     </div>
-    <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" onlogin="checkLoginState()"></div>
+
+   
 @endsection

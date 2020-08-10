@@ -74,6 +74,7 @@
     border: 1px solid #2997db;
     border-radius: 20px;
     padding: 8px 15px;
+    text-decoration: none;
 }
 
 .nav-login-component:hover {
