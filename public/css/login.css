@@ -1,3 +1,95 @@
+
+.login-block {
+    display: flex;
+    justify-content: center;
+    padding: 80px 0 ;
+    background-image: url("https://www.pixel4k.com/wp-content/uploads/2018/10/forest-mountains-sunset-cool-weather-minimalism-4k_1540749795.jpg");
+    background-position: center;
+}
+
+.login-background {
+    width: 350px;
+    height: 320px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 50px 0  ;
+}
+
+.login-lebel {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+
+}
+
+.login-input-block {
+    margin: 30px 7.5%;
+}
+
+.input-lebel {
+    margin-top: 15px;
+}
+
+.input {
+    width: 90%;
+    padding: 5px 10px;
+    font-size: 1.0rem;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid rgb(216, 216, 216);
+    margin-top: 10px;
+}
+
+.submit-block {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.login-submit {
+    padding: 10px 20px;
+    background-color: #2997db;
+    font-size: 1.15rem;
+    color: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #2997db;
+}
+
+.submit-block :hover {
+    background-color: #ffffff;
+    color: #2997db;
+    cursor: pointer;
+
+}
+
+.register-block {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.register-warb {
+    color: #b60c0c;
+}
+.register-warb:hover {
+    border-bottom: 1px solid #b60c0c;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .container {
       display: flex;
       justify-content:center;
