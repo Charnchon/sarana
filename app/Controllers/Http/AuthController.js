@@ -3,7 +3,7 @@
 const Database = use("Database");
 let token;
 let currentUsername;
-let news_ID;
+let news_ID = 1;
 
 class AuthController {
 
@@ -67,7 +67,7 @@ class AuthController {
     // }
     async news_1({view , request , response}) {
         const news_Comment = await Database.from("comments").select("*")
-        return view.render("news_1" , {news_Comment})
+        return view.render("news_1" , {news_Comment,token,currentUsername})
     }
     async add_news_comment({request , response}) {
         let cm_Date = new Date();
