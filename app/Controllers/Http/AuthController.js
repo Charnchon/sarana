@@ -58,6 +58,9 @@ class AuthController {
         await Database.from("new").insert({news_Topic , news_Content , news_Cg, news_Date}) 
         return response.redirect("/home")
     }
+    news({view}) {
+        return view.render("news_1" ,{token , currentUsername})
+    }
 }
 
 module.exports = AuthController
