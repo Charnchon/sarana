@@ -9,12 +9,11 @@ class AuthController {
     home({view}) {
         return view.render("/home" , {token , currentUsername})
     }
-
     async login ({view}) {
         // const dataDB = await Database.from("profiles").select("username")
         // var valueDB = JSON.stringify(dataDB)
         // console.log(valueDB)
-        return view.render("login" , {token , currentUsername})
+        return view.render("/login" , {token , currentUsername})
     }
     async loginUser ({request , response}) {
         const {username , password} = request.body
@@ -22,17 +21,17 @@ class AuthController {
         if(dataDB.length) {
             token = 1;
             currentUsername = username
-            return response.redirect('/login')
+            return response.redirect('/home')
         }
         else {
             token = 0;
-            return response.redirect('/login')
+            return response.redirect('/register')
         }
     }
 
     logoutUser({response}) {
         token = 0
-        return response.redirect('/register')
+        return response.redirect('/home')
     }
 
     register({view}) {
