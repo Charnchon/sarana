@@ -1,0 +1,88 @@
+
+.add-block {
+    display: flex;
+    justify-content: center;
+    padding: 80px 0 ;
+    background-image: url("https://i.pinimg.com/originals/8c/4f/03/8c4f03bd2e25dad36cb296a40445864a.png");
+    background-position: center;
+}
+
+.add-background {
+    width: 750px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 50px 0 0 0 ;
+}
+
+.add-lebel {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+
+}
+
+.add-input-block {
+    margin: 30px 7.5%;
+}
+
+.input-lebel {
+    display: flex ;
+    align-items: center;
+    margin-top: 15px;
+}
+
+
+
+.input {
+    width: 90%;
+    padding: 5px 5%;
+    font-size: 1.0rem;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid rgb(216, 216, 216);
+    margin-top: 10px;
+}
+
+.input-inline {
+    width: 30%;
+    padding: 5px 3%;
+    font-size: 1.0rem;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid rgb(216, 216, 216);
+    margin: 10px auto 0 auto;
+}
+
+textarea {
+    width: 100%;
+    height: 15rem;
+    resize: none;
+    font-size: 1.0rem;
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid rgb(216, 216, 216);
+    margin-top: 10px;
+}
+
+.submit-block {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 0 0;
+}
+
+.add-submit {
+    padding: 10px 20px;
+    background-color: #2997db;
+    font-size: 1.15rem;
+    color: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #2997db;
+}
+
+.submit-block :hover {
+    background-color: #ffffff;
+    color: #2997db;
+    cursor: pointer;
+
+}
