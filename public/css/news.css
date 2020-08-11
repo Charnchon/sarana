@@ -1,12 +1,27 @@
-.news-header {
+.news-container {
     margin-top: 5%;
-    margin-left: 5%;
-    width: 75%;
+    margin-left: 15%;
+    width: 55%;
     height: 100%;
 }
 .news-header h1{
-    font-size: 5rem;
+    font-size: 3rem;
 }
-.news-header-underline {x
+.news-header-underline {
     border-bottom: 5px solid black;
+    margin-bottom: 2%;
+}
+.news-body {
+    margin-left: 10%;
+    width: 90%;
+}
+.news-body h1{
+    font-size: 2.5rem;
+}
+.news-body h2{
+    font-size: 1.5rem;
+}
+.news-body p{
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
