@@ -8,6 +8,7 @@
     font-size: 3rem;
 }
 .news-header-underline {
+    margin-top: 2%;
     border-bottom: 5px solid black;
     margin-bottom: 2%;
 }
