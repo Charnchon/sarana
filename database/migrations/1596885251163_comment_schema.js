@@ -8,11 +8,11 @@ class CommentSchema extends Schema {
     this.create('comments', (table) => {
       table.increments()
       table.string("cm_Content", 500)
-      table.string("cm_ID", 80).notNullable().unique()
+      // table.string("cm_ID", 80).notNullable().unique()
       table.string("cm_Date", 80)
-      table.string("news_ID", 80).notNullable()
-      table.string("user_ID", 80)
-      table.boolean("cm_Status").notNullable()
+      table.string("username", 80)
+      table.integer("news_ID", 80).notNullable()
+      // table.boolean("cm_Status").notNullable()
       table.timestamps()
     })
   }
