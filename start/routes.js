@@ -20,8 +20,7 @@ const Route = use('Route')
 
 Route.get("/news_1" , "AuthController.news")
 
-Route.on('/').render('home')
-Route.on('/home').render('home')
+Route.get("/" , "AuthController.home")
 Route.get("/home" , "AuthController.home")
 
 Route.get("/home" , "AuthController.home")
