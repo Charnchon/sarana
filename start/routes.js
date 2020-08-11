@@ -22,8 +22,11 @@ Route.on('/test').render('test')
 
 Route.on('/').render('home')
 Route.on('/home').render('home')
+Route.get("/home" , "AuthController.home")
+
 //Route.on('/login').render('login')
-Route.get("/login", "AuthController.login")
+
+Route.get("/login" , "AuthController.login")
 Route.post("/login" , "AuthController.loginUser")
 
 Route.get("/layout" , "AuthController.logoutUser")

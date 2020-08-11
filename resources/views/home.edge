@@ -3,7 +3,31 @@
     {{style("css/home")}}
 @endsection
 @section("content")
-    <img class="show-image"src="https://wallpaperaccess.com/full/2906429.jpg" >
+    {{--  <img class="show-image"src="https://wallpaperaccess.com/full/2906429.jpg" >  --}}
+    <div class="slideshow-outest-container">
+        <div class="slideshow-container">
+            <div class="navigation">
+                <label for="r1" class="navigation-button" id="radio1"></label>
+                <label for="r2" class="navigation-button" id="radio2"></label>
+                <label for="r3" class="navigation-button" id="radio3"></label>
+                <label for="r4" class="navigation-button" id="radio4"></label>
+                <div class="slideshow-button">
+                    <input type="radio" name="radio" id="r1" checked>
+                    <input type="radio" name="radio" id="r2">
+                    <input type="radio" name="radio" id="r3">
+                    <input type="radio" name="radio" id="r4">
+                </div>                        
+            </div>
+            <div class="slideshow s1">
+                <div class="slideshow-pictures">
+                    <img src="./images/01.jpg" alt="">
+                    <img src="./images/02.jpg" alt="">
+                    <img src="./images/03.jpg" alt="">
+                    <img src="./images/04.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="articles-block" >
         <div class="type-articles-block">
             <div class="articles-label-block">
@@ -537,5 +561,5 @@
             </div>
         </div>
     </div>    
-    
+    {{script("js/home")}}
 @endsection

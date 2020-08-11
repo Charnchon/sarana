@@ -6,11 +6,14 @@ let currentUsername;
 
 class AuthController {
 
+    home({view}) {
+        return view.render("/home" , {token , currentUsername})
+    }
     async login ({view}) {
         // const dataDB = await Database.from("profiles").select("username")
         // var valueDB = JSON.stringify(dataDB)
         // console.log(valueDB)
-        return view.render("login" , {token , currentUsername})
+        return view.render("/login" , {token , currentUsername})
     }
     async loginUser ({request , response}) {
         const {username , password} = request.body
@@ -18,17 +21,17 @@ class AuthController {
         if(dataDB.length) {
             token = 1;
             currentUsername = username
-            return response.redirect('/login')
+            return response.redirect('/home')
         }
         else {
             token = 0;
-            return response.redirect('/login')
+            return response.redirect('/register')
         }
     }
 
     logoutUser({response}) {
         token = 0
-        return response.redirect('/register')
+        return response.redirect('/home')
     }
 
     register({view}) {
@@ -42,13 +45,13 @@ class AuthController {
     }
 
     index({view}) {
-        return view.render("login" , {token , currentUsername})
+        return view.render("" , {token , currentUsername})
     }
     slideshow ({view}) {
-        return view.render("login" , {token , currentUsername})
+        return view.render("slideshow" , {token , currentUsername})
     }
     addnews({view}) {
-        return view.render("login" , {token , currentUsername})
+        return view.render("addnews" , {token , currentUsername})
     }
     async addNews({request , response}) { 
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
