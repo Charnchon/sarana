@@ -64,22 +64,20 @@
                     <a href="https://www.instagram.com/">
                         <i class="fab fa-instagram nav-icon"></i>
                     </a>
-                    
-                    
                 </div>
-                <form method="GET" action="{{route('/layout')}}">
-                    {{ csrfField() }}   
+                <form method="GET" action="{{'/layout'}}">
+                    {{ csrfField() }}
                     @if(token == 0)
                     <a class="nav-login-component" href="/login">
                         Login <i class="fas fa-sign-in-alt"></i>
                     </a>
                     @elseif(token == 1)
-                    <div class="user-container">
-                        <div class="navbar-usernmae-layout">
+                    <div class="nav-user-logout-container">
+                        <div class="nav-user-layout">
                             <h1>{{currentUsername}}</h1>
                         </div>
                         <button type="submit" class="logout-submit">
-                            LOGOUT
+                            Logout
                         </button>
                     </div>
                     @endif
