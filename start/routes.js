@@ -34,5 +34,7 @@ Route.post("/api/register" , "AuthController.registerUser")
 Route.get("/index" , "AuthController.index")
 Route.get("/slideshow" , "AuthController.slideshow")
 
-Route.get("/addnews" , "AuthController.addnews")
+Route.get("/addnews" , "AuthController.addNews")
 Route.post("/addnews" , "AuthController.addNews")
+
+
