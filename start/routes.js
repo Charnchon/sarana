@@ -41,7 +41,7 @@ Route.get("/slideshow" , "AuthController.slideshow")
 Route.get("/addnews" , "AuthController.addnews")
 Route.post("/addnews" , "AuthController.addNews")
 
-Route.on('/categories-world').render('categories-world')
+Route.get('/categories-world' , "AuthController.categories_world")
 Route.on('/categories-tech').render('categories-tech')
 Route.on('/categories-sci').render('categories-sci')
 Route.on('/categories-business').render('categories-business')
