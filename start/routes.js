@@ -20,6 +20,10 @@ const Route = use('Route')
 
 Route.get("/news_1" , "AuthController.news")
 
+Route.on('/').render('home')
+Route.on('/home').render('home')
+Route.get("/home" , "AuthController.home")
+
 Route.get("/home" , "AuthController.home")
 //Route.on('/login').render('login')
 
@@ -37,3 +41,8 @@ Route.get("/slideshow" , "AuthController.slideshow")
 
 Route.get("/addnews" , "AuthController.addnews")
 Route.post("/addnews" , "AuthController.addNews")
+
+Route.on('/categories-world').render('categories-world')
+Route.on('/categories-tech').render('categories-tech')
+Route.on('/categories-sci').render('categories-sci')
+Route.on('/categories-business').render('categories-business')
