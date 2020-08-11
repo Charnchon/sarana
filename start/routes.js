@@ -18,8 +18,9 @@ const AuthController = require('../app/Controllers/Http/AuthController');
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get("/home" , "AuthController.home")
+Route.get("/news_1" , "AuthController.news")
 
+Route.get("/home" , "AuthController.home")
 //Route.on('/login').render('login')
 
 Route.get("/login" , "AuthController.login")
@@ -29,7 +30,7 @@ Route.get("/layout" , "AuthController.logoutUser")
 
 Route.get("/register" , "AuthController.register")
 Route.post("/register" , "AuthController.registerUser")
-Route.post("/api/register" , "AuthController.registerUser")
+Route.get("/api/register" , "AuthController.registerUser")
 
 Route.get("/index" , "AuthController.index")
 Route.get("/slideshow" , "AuthController.slideshow")
