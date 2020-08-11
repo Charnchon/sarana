@@ -3,6 +3,7 @@
 const Database = use("Database");
 let token;
 let currentUsername;
+let news_ID;
 
 class AuthController {
 
@@ -11,7 +12,6 @@ class AuthController {
     }
     async login ({view}) {
         // const dataDB = await Database.from("profiles").select("username")
-        // var valueDB = JSON.stringify(dataDB)
         // console.log(valueDB)
         return view.render("/login" , {token , currentUsername})
     }
@@ -55,14 +55,30 @@ class AuthController {
     }
     async addNews({request , response}) { 
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
-        await Database.from("new").insert({news_Topic , news_Content , news_Cg, news_Date}) 
+        await Database.from("news").insert({news_Topic , news_Content , news_Cg, news_Date}) 
         return response.redirect("/home")
     }
     categories_world ({view}) {
         return view.render("categories-world" ,{token , currentUsername})
     }
-    news({view}) {
-        return view.render("news_1" ,{token , currentUsername})
+    // news_1({view , response}) {
+    //     news_ID = "1";
+    //     return view.render("news_1" ,{token , currentUsername})
+    // }
+    async news_1({view , request , response}) {
+        const news_Comment = await Database.from("comments").select("*")
+        return view.render("news_1" , {news_Comment})
+    }
+    async add_news_comment({request , response}) {
+        let cm_Date = new Date();
+        let dd = String(cm_Date.getDate()).padStart(2, '0');
+        let mm = String(cm_Date.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = cm_Date.getFullYear();
+        cm_Date= mm + '/' + dd + '/' + yyyy;
+        const {cm_Content , which_web} = request.body
+        const username = currentUsername
+        await Database.from("comments").insert({cm_Content,cm_Date,username,news_ID})
+        return response.redirect("home")
     }
 }
 
