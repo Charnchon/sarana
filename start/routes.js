@@ -18,6 +18,8 @@ const AuthController = require('../app/Controllers/Http/AuthController');
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+Route.on('/test').render('test')
+
 Route.on('/').render('home')
 Route.on('/home').render('home')
 //Route.on('/login').render('login')
