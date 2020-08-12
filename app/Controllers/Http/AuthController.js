@@ -79,12 +79,27 @@ class AuthController {
         const news_Comment = await Database.from("comments").select("*").where({news_ID})
         return view.render("news_1" , {news_Comment,token,currentUsername})
     }
+    async news_2({view , request , response}) {
+        news_ID = 2;
+        const news_Comment = await Database.from("comments").select("*").where({news_ID})
+        return view.render("news_2" , {news_Comment,token,currentUsername})
+    }
+    async news_3({view , request , response}) {
+        news_ID = 3;
+        const news_Comment = await Database.from("comments").select("*").where({news_ID})
+        return view.render("news_3" , {news_Comment,token,currentUsername})
+    }
+    async news_4({view , request , response}) {
+        news_ID = 4;
+        const news_Comment = await Database.from("comments").select("*").where({news_ID})
+        return view.render("news_4" , {news_Comment,token,currentUsername})
+    }
     async add_news_comment({request , response}) {
         let cm_Date = new Date();
         let dd = String(cm_Date.getDate()).padStart(2, '0');
         let mm = String(cm_Date.getMonth() + 1).padStart(2, '0'); //January is 0!
         let yyyy = cm_Date.getFullYear();
-        cm_Date= mm + '/' + dd + '/' + yyyy;
+        cm_Date= dd + '/' + mm + '/' + yyyy;
         const {cm_Content , which_web} = request.body
         const username = currentUsername
         await Database.from("comments").insert({cm_Content,cm_Date,username,news_ID})
