@@ -34,6 +34,10 @@ Route.get("/news_4" , "AuthController.news_4")
 Route.get("/news_4" , "AuthController.show_news_comment")
 Route.post("/news_4" , "AuthController.add_news_comment")
 
+Route.get("/news_5" , "AuthController.news_detail")
+Route.get("/news_5" , "AuthController.show_news_comment")
+Route.post("/news_5" , "AuthController.add_news_comment")
+
 Route.get("/" , "AuthController.home")
 Route.get("/home" , "AuthController.home")
 
