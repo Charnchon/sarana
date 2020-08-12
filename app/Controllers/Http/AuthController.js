@@ -72,10 +72,10 @@ class AuthController {
         return view.render("/categories-tech" , {token , currentUsername})
     }
     categories_sci ({view}) {
-        return view.render("categories-sci" ,{token , currentUsername})
+        return view.render("/categories-sci" ,{token , currentUsername})
     }
     categories_business ({view}) {
-        return view.render("categories-business" ,{token , currentUsername})
+        return view.render("/categories-business" ,{token , currentUsername})
     }
     // news_1({view , response}) {
     //     news_ID = "1";
