@@ -1,0 +1,54 @@
+@layout("layout")
+@section("style-section")
+    {{ style("css/news")}}
+@endsection
+@section("content")
+    <div class="news-container">
+        @each(add in news_display)
+        <div class="news-header">
+            <h1>
+                <p>{{ add.news_Topic }}</p>
+            </h1>
+            <div class="news-header-underline"></div>
+        </div>
+        <div class="news-body">
+            <h2>
+                <div class="news-content">
+                    <p>{{ add.news_Content }}</p>
+                <div class="news-date">
+                    <p>{{ add.news_Date }}</p>
+                </div>
+            </h2>
+        </div>
+        @endeach
+        <div class="comment-underline"></div>
+        @section("comment")
+            <form method="POST" action="{{route('/news_1')}}">
+                <div class="comment-container">
+                    <h1>Comment</h1>
+                    <div class="inside-comment-container">
+                        @if(token == 0)
+                            <h2>Please Login First</h2>
+                        @else
+                            <h2>Sir. {{currentUsername}}</h2>
+                            {{ csrfField() }}
+                            <input type="text" name="cm_Content" placeholder="Add a public comment">
+                            <div class="comment-submit-button">
+                                <button type="submit">SUBMIT</button>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="comment-underline"></div>
+                <div class="another-comment">
+                    @each(comment in news_Comment)
+                    <div class="comment-box">
+                        <h1>{{comment.cm_Content}}</h1><h2>{{comment.cm_Date}}</h2><h2>{{comment.username}}</h2>
+                    </div>
+                    @endeach
+                </div>
+            </form>
+            <div class="comment-underline"></div>
+        @endsection
+    </div>
+@endsection
