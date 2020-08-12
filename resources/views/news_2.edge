@@ -1,0 +1,56 @@
+@layout("layout")
+@section("style-section")
+    {{ style("css/news")}}
+@endsection
+@section("content")
+    <div class="news-container">
+        <div class="news-header">
+            <h1>
+                <p>หนุ่มฟลอริดา ซื้อรถ Porsche มูลค่ากว่า 4.3 ล้านบาท ด้วย “เช็คปลอม” ที่ปรินท์มาจากบ้าน</p>
+            </h1>
+            <div class="news-header-underline"></div>
+        </div>
+        <div class="news-body">
+            <h2>
+                <p>ล่าสุดเมื่อช่วงปลายเดือนกรกฎาคม 2020 ที่ผ่านมา เจ้าหน้าที่ตำรวจในรัฐฟลอริดาก็เพิ่งได้จับกุมตัวชายวัย 42 ปีคนหนึ่ง หลังจากที่เขาใช้ ‘เช็คปลอม’ ซื้อรถสปอร์ตและนาฬิกาสุดหรู</p>
+                <p>Casey William Kelley คือชื่อของชายผู้ก่อเหตุ เขาได้พิมพ์เช็คเงินสดปลอมขึ้นมาด้วยคอมพิวเตอร์และปรินเตอร์ที่บ้าน และนำกระดาษแผ่นนั้นไปใช้ซื้อรถสปอร์ต</p>
+                <p>Casey กับรถ Porsche 911 ที่เขาซื้อมาได้ด้วยเช็คปลอม</p>
+                <img src="https://www.catdumb.tv/wp-content/uploads/2020/08/1-35.jpg">
+                <p>ภาพที่เห็นนั้นคือตอนที่เขาเพิ่งถอยรถออกมาได้หมาดๆ แล้วขอให้พนักงานที่ศูนย์ตัวแทนจำหน่ายรถช่วยถ่ายให้หน่อย และอาจเป็นเพราะความมั่นใจนั้นเองที่ทำให้พนักงานไม่เอะใจเลยว่าโดนหลอกเข้าให้แล้ว</p>
+                <p>ยังไม่หมดเพียงแค่นั้น เพราะหลังจากที่ Casey ใช้เช็คปลอมซื้อรถราคา 139,203.05 ดอลลาร์ฯ (ราว 4.3 ล้านบาท) วันต่อมาเขาก็ได้ไปที่ร้านเครื่องประดับสุดหรู เพื่อใช้วิธีการเดียวกัน</p>
+                <p>หลังจากที่เขาเลือกซื้อนาฬิกา Rolex ทั้งสิ้น 3 เรือน แล้วจ่ายเงินด้วยเช็คที่ทำขึ้นมาเอง ทว่าในครั้งนี้เขากลับไม่สามารถเดินออกจากร้านไปได้ง่ายๆ เพราะพนักงานได้ลองตรวจสอบเช็คใบนั้นเสียก่อนแล้วพบว่ามันเป็นของปลอม</p>
+                <p>เมื่อเขาถูกจับปุ๊บ ต่อมาทางศูนย์ตัวแทนจำหน่ายรถก็ได้มาแจ้งความในช่วงเวลาใกล้ๆ กัน หลังจากจับได้ว่าเช็คใบนั้นที่พวกเขาได้ไปก็เป็นของปลอมที่ Casey ทำขึ้นมาเอง</p>
+                <p>ที่มา : <a href="https://www.catdumb.tv/porsche-florida-man-339/">https://www.catdumb.tv/porsche-florida-man-339/</a></p>
+            </h2>
+        </div>
+        <div class="comment-underline"></div>
+        @section("comment")
+            <form method="POST" action="{{route('/news_1')}}">
+                <div class="comment-container">
+                    <h1>Comment</h1>
+                    <div class="inside-comment-container">
+                        @if(token == 0)
+                            <h2>Please Login First</h2>
+                        @else
+                            <h2>Sir. {{currentUsername}}</h2>
+                            {{ csrfField() }}
+                            <input type="text" name="cm_Content" placeholder="Add a public comment">
+                            <div class="comment-submit-button">
+                                <button type="submit">SUBMIT</button>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="comment-underline"></div>
+                <div class="another-comment">
+                    @each(comment in news_Comment)
+                    <div class="comment-box">
+                        <h1>{{comment.cm_Content}}</h1><h2>{{comment.cm_Date}}</h2><h2>{{comment.username}}</h2>
+                    </div>
+                    @endeach
+                </div>
+            </form>
+            <div class="comment-underline"></div>
+        @endsection
+    </div>
+@endsection

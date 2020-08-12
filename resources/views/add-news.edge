@@ -7,28 +7,28 @@
     <div class="add-background">
         <div class="add-lebel">BLOG</div>
         <div class="add-input-block">
-            <form action="{{route('/')}}" method="POST">
+            <form action="{{route('/addnews')}}" method="POST">
                 {{csrfField()}}
-                <div class="input-lebel">
+                <div class="input-lebel" >
                     BLOG NAME
                 </div>
-                <input class="input" type="text">
+                <input class="input" type="text"  name="news_Topic" >
                 <div class="input-lebel">
                     DATE 
-                    <input class="input-inline" type="date">
+                    <input class="input-inline" type="date"  name="news_Date">
                     CATEGORIES
-                    <select class="input-inline" name="" id="">
+                    <select class="input-inline" name="news_Cg" id="news_Cg">
                         <option value="">Categories</option>
-                        <option value="">Word</option>
-                        <option value="">Tech</option>
-                        <option value="">Sci</option>
-                        <option value="">Business</option>
+                        <option value="world">World</option>
+                        <option value="tech">Tech</option>
+                        <option value="sci">Sci</option>
+                        <option value="business">Business</option>
                     </select>
                 </div>
                 <div class="input-lebel">
                     STORY
                 </div>
-                <textarea id="input" ></textarea>
+                <textarea id="news_Content" name="news_Content" ></textarea>
 
                 <div class="submit-block">
                     <button class="add-submit">

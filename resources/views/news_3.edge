@@ -1,0 +1,60 @@
+@layout("layout")
+@section("style-section")
+    {{ style("css/news")}}
+@endsection
+@section("content")
+    <div class="news-container">
+        <div class="news-header">
+            <h1>
+                <p>หญิงชราเสียชีวิต เพราะเผลอ “ทอดเฟรนช์ฟรายส์ด้วยน้ำมันหล่อลื่น” และสูดควันพิษเข้าไป</p>
+            </h1>
+            <div class="news-header-underline"></div>
+        </div>
+        <div class="news-body">
+            <h2>
+                <img src="https://www.catdumb.tv/wp-content/uploads/2020/07/1-11.jpg">
+                <p>Carol Oldfield หญิงชราวัย 74 ปีที่อาศัยอยู่เพียงลำพังในเมือง Ripley ประเทศอังกฤษ เธอได้เผลอใช้น้ำมันหล่อลื่นดังกล่าว ‘ทอดเฟรนช์ฟรายส์’ แทนการใช้น้ำมันสำหรับประกอบอาหาร</p>
+                <p>หลังจากนั้นเธอก็เดินออกจากห้องครัว ไปนอนพักอยู่ที่อีกห้องหนึ่งแล้วเผลอหลับไปนานถึง 2 ชั่วโมง ก่อนที่จะสะดุ้งตื่นขึ้นมาแล้วพบว่ามีควันสีขาวลอยฟุ้งไปทั่วบ้าน</p>
+                <p>Carol ควบคุมสติและรีบโทรแจ้งตำรวจ ทำให้เจ้าหน้าที่ดับเพลิง และหน่วยพยาบาลรีบเดินทางมายังจุดเกิดเหตุ</p>
+                <img src="https://www.catdumb.tv/wp-content/uploads/2020/07/2-11.jpg">
+                <p>หญิงชราได้ขึ้นไปอยู่ชั้นบนของบ้าน ในขณะที่เจ้าหน้าที่ช่วยกันดับไฟบริเวณชั้นล่าง จากนั้นจึงได้ช่วยเหลือเธอลงมาและรีบพาส่งโรงพยาบาลเป็นการด่วน</p>
+                <p>ในตอนที่เกิดเหตุ Carol ยังดูเหมือนมีสติครบถ้วนดี ไม่แสดงถึงอาการบาดเจ็บร้ายแรงใดๆ เลย จนกระทั่งผ่านไปไม่กี่วัน เธอถึงเริ่มแสดงอาการที่น่าเป็นห่วงออกมา</p>
+                <p>นายแพทย์ Marco Giovannelli กล่าวว่า Carol เริ่มมีอาการไอและเจ็บคออย่างรุนแรง เธอถูกย้ายไปเฝ้าดูอาการอย่างใกล้ชิด แต่แล้วเธอก็เสียชีวิตในอีก 2 วันหลังจากนั้น</p>
+                <img src="https://www.catdumb.tv/wp-content/uploads/2020/07/3-12.jpg">
+                <p>ภายหลังทางทีมแพทย์ตรวจพบว่า Carol นั้นมีสัญญาณเริ่มต้นของโรคสมองเสื่อม ซึ่งนั่นอาจเป็นสาเหตุที่ทำให้เธอเผลอใช้น้ำมันหล่อลื่นมาประกอบอาหาร (ซึ่งน้ำมันชนิดนี้ห้ามกินเข้าไปโดยเด็ดขาด)</p>
+                <p>และสำหรับสาเหตุการตายของเธอนั้น ก็เป็นเพราะเธอได้สูดเอาควันพิษที่เกิดจากน้ำมันดังกล่าวเข้าไปในปริมาณมาก ส่งผลให้เกิดโรคปอดบวม และนำไปสู่การเสียชีวิตในที่สุด</p>
+                <p>แม้ว่าเหตุการณ์นี้จะเกิดขึ้นตั้งแต่วันที่ 6 มีนาคม 2020 ที่ผ่านมา แต่ทางเจ้าหน้าที่ก็เพิ่งได้นำเรื่องนี้ออกมารายงานสู่สาธารณะชน</p>
+                <p>ที่มา : <a href="https://www.catdumb.tv/not-cooking-oil-339/">https://www.catdumb.tv/not-cooking-oil-339/</a></p>
+            </h2>
+        </div>
+        <div class="comment-underline"></div>
+        @section("comment")
+            <form method="POST" action="{{route('/news_1')}}">
+                <div class="comment-container">
+                    <h1>Comment</h1>
+                    <div class="inside-comment-container">
+                        @if(token == 0)
+                            <h2>Please Login First</h2>
+                        @else
+                            <h2>Sir. {{currentUsername}}</h2>
+                            {{ csrfField() }}
+                            <input type="text" name="cm_Content" placeholder="Add a public comment">
+                            <div class="comment-submit-button">
+                                <button type="submit">SUBMIT</button>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="comment-underline"></div>
+                <div class="another-comment">
+                    @each(comment in news_Comment)
+                    <div class="comment-box">
+                        <h1>{{comment.cm_Content}}</h1><h2>{{comment.cm_Date}}</h2><h2>{{comment.username}}</h2>
+                    </div>
+                    @endeach
+                </div>
+            </form>
+            <div class="comment-underline"></div>
+        @endsection
+    </div>
+@endsection

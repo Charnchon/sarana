@@ -7,8 +7,10 @@ let news_ID;
 
 class AuthController {
 
-    home({view}) {
-        return view.render("/home" , {token , currentUsername})
+    async home({view}) {
+        const Topic = await Database.from("adds").select("news_Topic","news_Date","news_Content").where({id: 1})
+        const {news_Topic,news_Date, news_Content } = Topic[0]
+        return view.render("/home" , {token , currentUsername, news_Topic , news_Date, news_Content})        
     }
     async login ({view}) {
         // const dataDB = await Database.from("profiles").select("username")
@@ -55,11 +57,25 @@ class AuthController {
     }
     async addNews({request , response}) { 
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
-        await Database.from("news").insert({news_Topic , news_Content , news_Cg, news_Date}) 
+        await Database.from("adds").insert({news_Topic , news_Content , news_Cg, news_Date}) 
         return response.redirect("/home")
     }
-    categories_world ({view}) {
-        return view.render("categories-world" ,{token , currentUsername})
+    // async categories_world ({view}) {
+    //     const Topic = await Database.from("adds").select("news_Topic","news_Date","news_Content").where({news_Cg:"world", id:1})
+    //     const {news_Topic, news_Date, news_Content } = Topic[0]
+    //     return view.render("/categories-world" ,{token , currentUsername, news_Topic , news_Date, news_Content})
+    // }
+    categories_world({view}) {
+        return view.render("/categories-world" , {token , currentUsername})
+    }
+    categories_tech({view}) {
+        return view.render("/categories-tech" , {token , currentUsername})
+    }
+    categories_sci ({view}) {
+        return view.render("/categories-sci" ,{token , currentUsername})
+    }
+    categories_business ({view}) {
+        return view.render("/categories-business" ,{token , currentUsername})
     }
     // news_1({view , response}) {
     //     news_ID = "1";
@@ -70,16 +86,42 @@ class AuthController {
         const news_Comment = await Database.from("comments").select("*").where({news_ID})
         return view.render("news_1" , {news_Comment,token,currentUsername})
     }
+    async news_2({view , request , response}) {
+        news_ID = 2;
+        const news_Comment = await Database.from("comments").select("*").where({news_ID})
+        return view.render("news_2" , {news_Comment,token,currentUsername})
+    }
+    async news_3({view , request , response}) {
+        news_ID = 3;
+        const news_Comment = await Database.from("comments").select("*").where({news_ID})
+        return view.render("news_3" , {news_Comment,token,currentUsername})
+    }
+    async news_4({view , request , response}) {
+        news_ID = 4;
+        const news_Comment = await Database.from("comments").select("*").where({news_ID})
+        return view.render("news_4" , {news_Comment,token,currentUsername})
+    }
     async add_news_comment({request , response}) {
         let cm_Date = new Date();
         let dd = String(cm_Date.getDate()).padStart(2, '0');
         let mm = String(cm_Date.getMonth() + 1).padStart(2, '0'); //January is 0!
         let yyyy = cm_Date.getFullYear();
-        cm_Date= mm + '/' + dd + '/' + yyyy;
+        cm_Date= dd + '/' + mm + '/' + yyyy;
         const {cm_Content , which_web} = request.body
         const username = currentUsername
         await Database.from("comments").insert({cm_Content,cm_Date,username,news_ID})
-        return response.redirect("home")
+        if(news_ID == 1) {
+            return response.redirect("news_1")
+        }
+        else if(news_ID == 2) {
+            return response.redirect("news_2")
+        }
+        else if(news_ID == 3) {
+            return response.redirect("news_3")
+        }
+        else if(news_ID == 4) {
+            return response.redirect("news_4")
+        }
     }
 }
 
@@ -87,3 +129,4 @@ module.exports = AuthController
 
 //SELECT * FROM 'user'
 //WHERE 'name' = 'John';
+2
