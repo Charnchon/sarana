@@ -69,7 +69,8 @@ a {
 }
 
 .nav-login-block {
-  width: 200px;
+  width: 230px;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
@@ -100,7 +101,6 @@ a {
     height: 0px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .nav-type {
@@ -113,49 +113,81 @@ a {
 }
 
 .dropbtn {
-    background-color: inherit;
-    border: none;
-    cursor: pointer;
-    font-size: 1.0rem;
-    margin-right: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: #2997db
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+  .logout-block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
   }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-   
+
+  .username-block {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #000000
   }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+
+  .username {
+    font-size: 1.1rem;
+    color: #0074bd;
+    font-weight: bold;
+    padding: 0 7.5px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
   }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: #000;
-    padding: 12px 16px;
+
+  .nav-logout-component {
+    width: fit-content;
+    display: flex;
+    margin-right: 20px;
+    font-size: 0.6rem;
+    width: fit-content;
+    border-bottom: 1px solid #fff0;
+    background-color:#ffffff00;
+    border:none;
+    outline: none;
     text-decoration: none;
-    display: block;
   }
-  
-  .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  .dropdown:hover .dropbtn {
-    color: #2997db;
+
+  .nav-logout-component:hover {
+    width: fit-content;
+    color: #b60c0c;
+    /* border-bottom: 1px solid #b60c0c; */
     outline: none;
-    
-  }
-  .dropbtn:focus {
-    outline: none;
-  }
+    cursor: pointer;
+}
