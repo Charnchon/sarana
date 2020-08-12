@@ -36,102 +36,20 @@
                 </div>
             </div>
             <div class="news-component">
+                @each(add in lastest_news)
                 <div class="news-content-show">
                     <img class="news-content-image"src="https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/14.jpg" >
                     <div class="news-content-lebel">
-                        {{ news_Topic }}
+                        {{ add.news_Topic }}
                     </div>
                     <div class="news-content" >
-                        {{ news_Content }}
+                        {{ add.news_Content }}
                     </div>
                     <div class="news-content-date">
-                        {{ news_Date }}
+                        {{ add.news_Date }}
                     </div>
                 </div>
-                <div class="news-content-show">
-                    <img class="news-content-image"src="https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/14.jpg" >
-                    <div class="news-content-lebel">
-                        I'm in love with your body
-                    </div>
-                    <div class="news-content" >
-                        I would like to test so I test this block and you will see after this content is over width dddddddddddddd
-                    </div>
-                    <div class="news-content-date">
-                        8-28-2019
-                    </div>
-                </div>
-                <div class="news-content-show">
-                    <img class="news-content-image"src="https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/14.jpg" >
-                    <div class="news-content-lebel">
-                        real wild life
-                    </div>
-                    <div class="news-content" >
-                        I would like to test so I test this block and you will see after this content is over width dddddddddddddd
-                    </div>
-                    <div class="news-content-date">
-                        8-28-2019
-                    </div>
-                </div>
-                <div class="news-content-show">
-                    <img class="news-content-image"src="https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/14.jpg" >
-                    <div class="news-content-lebel">
-                        I really like this po
-                    </div>
-                    <div class="news-content" >
-                        I would like to test so I test this block and you will see after this content is over width dddddddddddddd
-                    </div>
-                    <div class="news-content-date">
-                        8-28-2019
-                    </div>
-                </div>
-                <div class="news-content-show">
-                    <img class="news-content-image"src="https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/14.jpg" >
-                    <div class="news-content-lebel">
-                        dont try love me
-                    </div>
-                    <div class="news-content" >
-                        I would like to test so I test this block and you will see after this content is over width dddddddddddddd
-                    </div>
-                    <div class="news-content-date">
-                        8-28-2019
-                    </div>
-                </div>
-                <div class="news-content-show">
-                    <img class="news-content-image"src="https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/14.jpg" >
-                    <div class="news-content-lebel">
-                        How dare you
-                    </div>
-                    <div class="news-content" >
-                        I would like to test so I test this block and you will see after this content is over width dddddddddddddd
-                    </div>
-                    <div class="news-content-date">
-                        8-28-2019
-                    </div>
-                </div>
-                <div class="news-content-show">
-                    <img class="news-content-image"src="https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/14.jpg" >
-                    <div class="news-content-lebel">
-                        How dare you
-                    </div>
-                    <div class="news-content" >
-                        I would like to test so I test this block and you will see after this content is over width dddddddddddddd
-                    </div>
-                    <div class="news-content-date">
-                        8-28-2019
-                    </div>
-                </div>
-                <div class="news-content-show">
-                    <img class="news-content-image"src="https://assets.hongkiat.com/uploads/minimalist-dekstop-wallpapers/4k/original/14.jpg" >
-                    <div class="news-content-lebel">
-                        How dare you
-                    </div>
-                    <div class="news-content" >
-                        I would like to test so I test this block and you will see after this content is over width dddddddddddddd
-                    </div>
-                    <div class="news-content-date">
-                        8-28-2019
-                    </div>
-                </div>
+                @endeach  
             </div>
         </div>
 

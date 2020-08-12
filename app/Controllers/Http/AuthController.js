@@ -5,13 +5,21 @@ let token;
 let currentUsername;
 let news_ID;
 let news_Cg;
+let news_id;
 
 class AuthController {
 
     async home({view}) {
-        const Topic = await Database.from("adds").select("*").where({id: 1})
-        const {news_Topic,news_Date, news_Content } = Topic[0]
-        return view.render("/home" , {token , currentUsername, news_Topic , news_Date, news_Content})        
+        news_id = null;
+        const lastest_news = await Database.from("adds").select("*").where({ news_id })
+        return view.render("/home" , {token , currentUsername, lastest_news})        
+    }
+    async add_lastest_news({request , response}) {
+        const {news_Topic , news_Date, news_Content } = request.body
+        await Database.from("adds").insert({news_Topic , news_Date, news_Content})
+        if( news_id = null) {
+            return response.redirect("home")
+        }
     }
     async login ({view}) {
         // const dataDB = await Database.from("profiles").select("username")
@@ -61,11 +69,7 @@ class AuthController {
         await Database.from("adds").insert({news_Topic , news_Content , news_Cg, news_Date}) 
         return response.redirect("/home")
     }
-    // async categories_world ({view}) {
-    //     const Topic = await Database.from("adds").select("news_Topic","news_Date","news_Content").where({news_Cg:"world", id:1})
-    //     const {news_Topic, news_Date, news_Content } = Topic[0]
-    //     return view.render("/categories-world" ,{token , currentUsername, news_Topic , news_Date, news_Content})
-    // }
+    
     async categories_world({view}) {
         news_Cg = "world";
         const news_display = await Database.from("adds").select("*").where({news_Cg})
@@ -87,8 +91,7 @@ class AuthController {
         return view.render("/categories-business" ,{token , currentUsername,news_display})
     }
     async add_news_Cg({request , response}) {
-        const {news_Topic , news_Date, news_Content , which_web} = request.body
-        // const username = currentUsername
+        const {news_Topic , news_Date, news_Content } = request.body
         await Database.from("adds").insert({news_Topic , news_Date, news_Content})
         if(news_Cg == "world") {
             return response.redirect("categories-world")
