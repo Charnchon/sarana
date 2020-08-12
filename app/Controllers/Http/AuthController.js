@@ -122,3 +122,4 @@ module.exports = AuthController
 
 //SELECT * FROM 'user'
 //WHERE 'name' = 'John';
+2
