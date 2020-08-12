@@ -43,7 +43,8 @@
                     Latest Articles <div class="line-article"></div>
                 </div>
             </div>
-            <div class="news-component">
+            <a href="/news_5">
+                 <div class="news-component" >
                 @each(add in lastest_news)
                 <div class="news-content-show">
                     <img class="news-content-image"src="https://i.pinimg.com/originals/11/2c/07/112c0718eeafdb00bebc9874376cd6b8.jpg" >
@@ -59,10 +60,16 @@
                 </div>
                 @endeach  
             </div>
+            </a>
+           
         </div>
 
         <div class="tag-block">
+            <a href="/categories-world"><i class="fas fa-globe-americas"></i></a> 
             
+            <a href="/categories-tech"><i class="fas fa-microchip"></i></a>
+            <a href="/categories-sci"><i class="fas fa-flask"></i></a>
+            <a href="/categories-business"><i class="fas fa-comment-dollar"></i></a>
         </div>
 
         <div class="type-articles-block">

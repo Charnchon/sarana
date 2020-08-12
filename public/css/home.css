@@ -96,6 +96,10 @@
     margin-top: 80px;
     background-color: #2a81b8;
     color: #fff;
+    display: flex;
+    font-size: 4rem;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .slideshow-outest-container {
