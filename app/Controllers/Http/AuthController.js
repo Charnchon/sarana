@@ -71,12 +71,12 @@ class AuthController {
     categories_tech({view}) {
         return view.render("/categories-tech" , {token , currentUsername})
     }
-    categories_sci({view}) {
-        return view.render("/categories-sci" , {token , currentUsername})
-    } 
-    categories_business({view}) {
-        return view.render("/categories-business" , {token , currentUsername})
-    }     
+    categories_sci ({view}) {
+        return view.render("categories-sci" ,{token , currentUsername})
+    }
+    categories_business ({view}) {
+        return view.render("categories-business" ,{token , currentUsername})
+    }
     // news_1({view , response}) {
     //     news_ID = "1";
     //     return view.render("news_1" ,{token , currentUsername})
@@ -95,7 +95,18 @@ class AuthController {
         const {cm_Content , which_web} = request.body
         const username = currentUsername
         await Database.from("comments").insert({cm_Content,cm_Date,username,news_ID})
-        return response.redirect("home")
+        if(news_ID == 1) {
+            return response.redirect("news_1")
+        }
+        else if(news_ID == 2) {
+            return response.redirect("news_2")
+        }
+        else if(news_ID == 3) {
+            return response.redirect("news_3")
+        }
+        else if(news_ID == 4) {
+            return response.redirect("news_4")
+        }
     }
 }
 
