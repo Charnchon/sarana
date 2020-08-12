@@ -37,8 +37,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    @!section("style-section")
     @include("global-css")
+    @!section("style-section")
 </head>
 <body>
     <header class="navbar">
@@ -69,21 +69,23 @@
                     </a>
                 </div>
                 <div class="nav-login-block">
-                    <form method="GET" action="{{'/layout'}}">
+                    <form class="nav-login-block" method="GET" action="{{'/layout'}}">
                         {{ csrfField() }}
                         @if(token == 0)
-                        <a class="nav-login-component" href="/login">
-                            Login <i class="fas fa-sign-in-alt"></i>
-                        </a>
+                            <a class="nav-login-component" href="/login">
+                                Login <i class="fas fa-sign-in-alt"></i>
+                            </a>
                         @elseif(token == 1)
-                        <div class="nav-user-logout-container">
-                            <div class="nav-user-layout">
-                                <h1>{{currentUsername}}</h1>
-                            </div>
-                            <button type="submit" class="logout-submit">
-                                Logout
-                            </button>
-                        </div>
+                                <div class="username-block">
+                                    <div class="username">
+                                        {{currentUsername}}
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="nav-logout-component">
+                                    Logout
+                                </button>
+                            
                         @endif
                     </form>
                 </div>
