@@ -4,11 +4,12 @@ const Database = use("Database");
 let token;
 let currentUsername;
 let news_ID;
+let news_Cg;
 
 class AuthController {
 
     async home({view}) {
-        const Topic = await Database.from("adds").select("news_Topic","news_Date","news_Content").where({id: 1})
+        const Topic = await Database.from("adds").select("*").where({id: 1})
         const {news_Topic,news_Date, news_Content } = Topic[0]
         return view.render("/home" , {token , currentUsername, news_Topic , news_Date, news_Content})        
     }
@@ -65,22 +66,44 @@ class AuthController {
     //     const {news_Topic, news_Date, news_Content } = Topic[0]
     //     return view.render("/categories-world" ,{token , currentUsername, news_Topic , news_Date, news_Content})
     // }
-    categories_world({view}) {
-        return view.render("/categories-world" , {token , currentUsername})
+    async categories_world({view}) {
+        news_Cg = "world";
+        const news_display = await Database.from("adds").select("*").where({news_Cg})
+        return view.render("/categories-world" , {token , currentUsername,news_display})
     }
-    categories_tech({view}) {
-        return view.render("/categories-tech" , {token , currentUsername})
+    async categories_tech({view}) {
+        news_Cg = "tech";
+        const news_display = await Database.from("adds").select("*").where({news_Cg})
+        return view.render("/categories-tech" , {token , currentUsername,news_display})
     }
-    categories_sci ({view}) {
-        return view.render("/categories-sci" ,{token , currentUsername})
+    async categories_sci ({view}) {
+        news_Cg = "sci";
+        const news_display = await Database.from("adds").select("*").where({news_Cg})
+        return view.render("/categories-sci" ,{token , currentUsername,news_display})
     }
-    categories_business ({view}) {
-        return view.render("/categories-business" ,{token , currentUsername})
+    async categories_business ({view}) {
+        news_Cg = "business";
+        const news_display = await Database.from("adds").select("*").where({news_Cg})
+        return view.render("/categories-business" ,{token , currentUsername,news_display})
     }
-    // news_1({view , response}) {
-    //     news_ID = "1";
-    //     return view.render("news_1" ,{token , currentUsername})
-    // }
+    async add_news_Cg({request , response}) {
+        const {news_Topic , news_Date, news_Content , which_web} = request.body
+        // const username = currentUsername
+        await Database.from("adds").insert({news_Topic , news_Date, news_Content})
+        if(news_Cg == "world") {
+            return response.redirect("categories-world")
+        }
+        else if(news_Cg == "tech") {
+            return response.redirect("categories-tech")
+        }
+        else if(news_Cg == "sci") {
+            return response.redirect("categories-sci")
+        }
+        else if(news_Cg == "business") {
+            return response.redirect("categories-business")
+        }
+    }
+  
     async news_1({view , request , response}) {
         news_ID = 1;
         const news_Comment = await Database.from("comments").select("*").where({news_ID})
