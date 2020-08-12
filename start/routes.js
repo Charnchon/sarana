@@ -19,8 +19,20 @@ const AuthController = require('../app/Controllers/Http/AuthController');
 const Route = use('Route')
 
 Route.get("/news_1" , "AuthController.news_1")
-Route.on("/news_1" , "AuthController.show_news_comment")
+Route.get("/news_1" , "AuthController.show_news_comment")
 Route.post("/news_1" , "AuthController.add_news_comment")
+
+Route.get("/news_2" , "AuthController.news_2")
+Route.get("/news_2" , "AuthController.show_news_comment")
+Route.post("/news_2" , "AuthController.add_news_comment")
+
+Route.get("/news_3" , "AuthController.news_3")
+Route.get("/news_3" , "AuthController.show_news_comment")
+Route.post("/news_3" , "AuthController.add_news_comment")
+
+Route.get("/news_4" , "AuthController.news_4")
+Route.get("/news_4" , "AuthController.show_news_comment")
+Route.post("/news_4" , "AuthController.add_news_comment")
 
 Route.get("/" , "AuthController.home")
 Route.get("/home" , "AuthController.home")
