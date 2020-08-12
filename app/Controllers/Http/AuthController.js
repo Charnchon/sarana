@@ -7,8 +7,10 @@ let news_ID;
 
 class AuthController {
 
-    home({view}) {
-        return view.render("/home" , {token , currentUsername})
+    async home({view}) {
+        const Topic = await Database.from("adds").select("news_Topic","news_Date","news_Content").where({id: 1})
+        const {news_Topic,news_Date, news_Content } = Topic[0]
+        return view.render("/home" , {token , currentUsername, news_Topic , news_Date, news_Content})        
     }
     async login ({view}) {
         // const dataDB = await Database.from("profiles").select("username")
@@ -55,20 +57,25 @@ class AuthController {
     }
     async addNews({request , response}) { 
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
-        await Database.from("news").insert({news_Topic , news_Content , news_Cg, news_Date}) 
+        await Database.from("adds").insert({news_Topic , news_Content , news_Cg, news_Date}) 
         return response.redirect("/home")
     }
-    categories_world ({view}) {
-        return view.render("categories-world" ,{token , currentUsername})
+    // async categories_world ({view}) {
+    //     const Topic = await Database.from("adds").select("news_Topic","news_Date","news_Content").where({news_Cg:"world", id:1})
+    //     const {news_Topic, news_Date, news_Content } = Topic[0]
+    //     return view.render("/categories-world" ,{token , currentUsername, news_Topic , news_Date, news_Content})
+    // }
+    categories_world({view}) {
+        return view.render("/categories-world" , {token , currentUsername})
     }
-    categories_tech ({view}) {
-        return view.render("categories-tech" ,{token , currentUsername})
+    categories_tech({view}) {
+        return view.render("/categories-tech" , {token , currentUsername})
     }
     categories_sci ({view}) {
-        return view.render("categories-sci" ,{token , currentUsername})
+        return view.render("/categories-sci" ,{token , currentUsername})
     }
     categories_business ({view}) {
-        return view.render("categories-business" ,{token , currentUsername})
+        return view.render("/categories-business" ,{token , currentUsername})
     }
     // news_1({view , response}) {
     //     news_ID = "1";
