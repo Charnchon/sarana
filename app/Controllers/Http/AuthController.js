@@ -128,9 +128,10 @@ class AuthController {
     }
     //news_5 pull from DB
     async news_detail({view}) {
+        news_ID = 5;
         const news_display = await Database.from("adds").select("*").orderBy('id','desc').limit(1)
-        console.log(news_display)
-        return view.render("/news_5" , {token , currentUsername , news_display})
+        const news_Comment = await Database.from("comments").select("*").where({news_ID})
+        return view.render("/news_5" , {news_Comment,token , currentUsername , news_display})
     }
 
     async add_news_comment({request , response}) {
@@ -153,6 +154,10 @@ class AuthController {
         }
         else if(news_ID == 4) {
             return response.redirect("news_4")
+        }
+        else if(news_ID == 5)
+        {
+            return response.redirect("news_5")
         }
     }
 }
