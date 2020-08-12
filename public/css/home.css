@@ -135,16 +135,16 @@
     z-index: 1000;
     display: flex;
     flex-direction: row;
-    bottom: 3%;
-    left: 32.25%;
+    bottom: 1%;
+    left: 34%;
 }
 .navigation-button {
     transition: 0.4s ease-in-out;
     background-color: rgba(255,255,255,0);
     border: 1px solid white;
     border-radius: 50%;
-    width: 15px;
-    height: 15px;
+    width: 30px;
+    height: 30px;
     margin-left: 5%;
 }
 
