@@ -8,9 +8,9 @@ let news_ID;
 class AuthController {
 
     async home({view}) {
-        const Topic = await Database.from("adds").select("news_Topic","news_Date").where({id: 1})
-        const {news_Topic,news_Date } = Topic[0]
-        return view.render("/home" , {token , currentUsername, news_Topic , news_Date})
+        const Topic = await Database.from("adds").select("news_Topic","news_Date","news_Content").where({id: 1})
+        const {news_Topic,news_Date, news_Content } = Topic[0]
+        return view.render("/home" , {token , currentUsername, news_Topic , news_Date, news_Content})
     }
     async login ({view}) {
         // const dataDB = await Database.from("profiles").select("username")
