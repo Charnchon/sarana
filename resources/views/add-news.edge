@@ -1,0 +1,42 @@
+@layout('layout')
+@section("style-section")
+    {{ style("css/add-news")}} 
+@endsection
+@section("content")
+<div class="add-block">
+    <div class="add-background">
+        <div class="add-lebel">BLOG</div>
+        <div class="add-input-block">
+            <form action="{{route('/')}}" method="POST">
+                {{csrfField()}}
+                <div class="input-lebel">
+                    BLOG NAME
+                </div>
+                <input class="input" type="text">
+                <div class="input-lebel">
+                    DATE 
+                    <input class="input-inline" type="date">
+                    CATEGORIES
+                    <select class="input-inline" name="" id="">
+                        <option value="">Categories</option>
+                        <option value="">Word</option>
+                        <option value="">Tech</option>
+                        <option value="">Sci</option>
+                        <option value="">Business</option>
+                    </select>
+                </div>
+                <div class="input-lebel">
+                    STORY
+                </div>
+                <textarea id="input" ></textarea>
+
+                <div class="submit-block">
+                    <button class="add-submit">
+                        POST
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection

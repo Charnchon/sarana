@@ -45,18 +45,21 @@
         <div class="top-navbar">
             <div class="nav-logo nav-left-component">logo</div>
             <div class="nav-right-component nav-component">
-                <a class="nav-right-component-home-tag" href="/home">
+                <a class="nav-right-component-tag" href="/home">
                     Home
                 </a>
-                <div class="dropdown">
-                    <div class="dropbtn">Categories   <i class="fas fa-angle-down"></i> </div>
+                <div class="dropdown ">
+                    <div class="dropbtn nav-right-component-tag">Categories   <i class="fas fa-angle-down"></i> </div>
                     <div class="dropdown-content">
-                        <a href="#">Wolrd</a>
-                        <a href="#">Tech</a>
-                        <a href="#">Sci</a>
-                        <a href="#">Business</a>
+                        <a href="./categories-world">Wolrd</a>
+                        <a href="./categories-tech">Tech</a>
+                        <a href="./categories-sci">Sci</a>
+                        <a href="./categories-business">Business</a>
                     </div>
                 </div>
+                <a class="nav-right-component-tag" href="/add-news">
+                    Post
+                </a>
                 <div class="nav-icon-block">
                     <a href="https://www.facebook.com/">
                         <i class="fab fa-facebook nav-icon"></i>
@@ -64,26 +67,27 @@
                     <a href="https://www.instagram.com/">
                         <i class="fab fa-instagram nav-icon"></i>
                     </a>
-                    
-                    
                 </div>
-                <form method="GET" action="{{route('/layout')}}">
-                    {{ csrfField() }}   
-                    @if(token == 0)
-                    <a class="nav-login-component" href="/login">
-                        Login <i class="fas fa-sign-in-alt"></i>
-                    </a>
-                    @elseif(token == 1)
-                    <div class="user-container">
-                        <div class="navbar-usernmae-layout">
-                            <h1>{{currentUsername}}</h1>
+                <div class="nav-login-block">
+                    <form method="GET" action="{{'/layout'}}">
+                        {{ csrfField() }}
+                        @if(token == 0)
+                        <a class="nav-login-component" href="/login">
+                            Login <i class="fas fa-sign-in-alt"></i>
+                        </a>
+                        @elseif(token == 1)
+                        <div class="nav-user-logout-container">
+                            <div class="nav-user-layout">
+                                <h1>{{currentUsername}}</h1>
+                            </div>
+                            <button type="submit" class="logout-submit">
+                                Logout
+                            </button>
                         </div>
-                        <button type="submit" class="logout-submit">
-                            LOGOUT
-                        </button>
-                    </div>
-                    @endif
-                </form>
+                        @endif
+                    </form>
+                </div>
+                
             </div>
         </div> 
         

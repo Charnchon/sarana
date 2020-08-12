@@ -3,6 +3,7 @@
 const Database = use("Database");
 let token;
 let currentUsername;
+let news_ID;
 
 class AuthController {
 
@@ -11,12 +12,10 @@ class AuthController {
         const {news_Topic,news_Date } = Topic[0]
         return view.render("/home" , {token , currentUsername, news_Topic , news_Date})
     }
-
     async login ({view}) {
         // const dataDB = await Database.from("profiles").select("username")
-        // var valueDB = JSON.stringify(dataDB)
         // console.log(valueDB)
-        return view.render("login" , {token , currentUsername})
+        return view.render("/login" , {token , currentUsername})
     }
     async loginUser ({request , response}) {
         const {username , password} = request.body
@@ -24,17 +23,17 @@ class AuthController {
         if(dataDB.length) {
             token = 1;
             currentUsername = username
-            return response.redirect('/login')
+            return response.redirect('/home')
         }
         else {
             token = 0;
-            return response.redirect('/login')
+            return response.redirect('/register')
         }
     }
 
     logoutUser({response}) {
         token = 0
-        return response.redirect('/register')
+        return response.redirect('/home')
     }
 
     register({view}) {
@@ -60,6 +59,29 @@ class AuthController {
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
         await Database.from("adds").insert({news_Topic , news_Content , news_Cg, news_Date}) 
         return response.redirect("/home")
+    }
+    categories_world ({view}) {
+        return view.render("categories-world" ,{token , currentUsername})
+    }
+    // news_1({view , response}) {
+    //     news_ID = "1";
+    //     return view.render("news_1" ,{token , currentUsername})
+    // }
+    async news_1({view , request , response}) {
+        news_ID = 1;
+        const news_Comment = await Database.from("comments").select("*").where({news_ID})
+        return view.render("news_1" , {news_Comment,token,currentUsername})
+    }
+    async add_news_comment({request , response}) {
+        let cm_Date = new Date();
+        let dd = String(cm_Date.getDate()).padStart(2, '0');
+        let mm = String(cm_Date.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = cm_Date.getFullYear();
+        cm_Date= mm + '/' + dd + '/' + yyyy;
+        const {cm_Content , which_web} = request.body
+        const username = currentUsername
+        await Database.from("comments").insert({cm_Content,cm_Date,username,news_ID})
+        return response.redirect("home")
     }
 }
 

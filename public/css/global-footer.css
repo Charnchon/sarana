@@ -29,8 +29,8 @@
 }
 
 .context-footer-content-input {
-    border: 1px solid  #8f8f8f;
-    border-radius: 5px;
+    border: 1px solid  #494949;
+    border-radius: 20px;
     padding: 10px 15px;
     margin: 0;
     overflow: hidden;
@@ -38,9 +38,9 @@
 }
 
 .context-footer-content-button {
-    background-color: #8f8f8f;
-    border: 1px solid  #8f8f8f;
-    border-radius: 5px;
+    background-color: #2997db;
+    border: 1px solid  #2997db;
+    border-radius: 20px;
     padding: 10px 10px;
     margin: 0;
     color: #fff;
@@ -49,9 +49,9 @@
 
 .context-footer-content-button:hover {
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 20px;
     margin: 0;
-    color: #8f8f8f;
+    color: #2997db;
     outline: none;
     cursor: pointer;
 }

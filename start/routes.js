@@ -18,6 +18,11 @@ const AuthController = require('../app/Controllers/Http/AuthController');
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+Route.get("/news_1" , "AuthController.news_1")
+Route.on("/news_1" , "AuthController.show_news_comment")
+Route.post("/news_1" , "AuthController.add_news_comment")
+
+Route.get("/" , "AuthController.home")
 Route.get("/home" , "AuthController.home")
 
 //Route.on('/login').render('login')
@@ -29,12 +34,17 @@ Route.get("/layout" , "AuthController.logoutUser")
 
 Route.get("/register" , "AuthController.register")
 Route.post("/register" , "AuthController.registerUser")
-Route.post("/api/register" , "AuthController.registerUser")
+Route.get("/api/register" , "AuthController.registerUser")
 
 Route.get("/index" , "AuthController.index")
 Route.get("/slideshow" , "AuthController.slideshow")
 
+Route.on("/add-news" , "AuthController.addnews").render("add-news")
+
 Route.get("/addnews" , "AuthController.addnews")
 Route.post("/addnews" , "AuthController.addNews")
 
-
+Route.get('/categories-world' , "AuthController.categories_world")
+Route.on('/categories-tech').render('categories-tech')
+Route.on('/categories-sci').render('categories-sci')
+Route.on('/categories-business').render('categories-business')
