@@ -10,7 +10,7 @@ class AddSchema extends Schema {
       // table.string("username", 80).notNullable().unique()
       table.string("news_Topic", 254).unique()
       table.string("news_Content", 10000)
-      table.string("news_Cg", 80).notNullable()
+      table.string("news_Cg", 80)
       // table.string("news_ID", 80).notNullable().unique()
       table.string("news_Date", 80)
       // table.string("writer", 80)
