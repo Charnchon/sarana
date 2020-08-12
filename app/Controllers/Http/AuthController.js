@@ -6,7 +6,6 @@ let currentUsername;
 let news_ID;
 let news_Cg;
 let news_id;
-
 class AuthController {
 
     async home({view}) {
@@ -69,7 +68,7 @@ class AuthController {
         await Database.from("adds").insert({news_Topic , news_Content , news_Cg, news_Date}) 
         return response.redirect("/home")
     }
-    
+
     async categories_world({view}) {
         news_Cg = "world";
         const news_display = await Database.from("adds").select("*").where({news_Cg})
@@ -127,6 +126,13 @@ class AuthController {
         const news_Comment = await Database.from("comments").select("*").where({news_ID})
         return view.render("news_4" , {news_Comment,token,currentUsername})
     }
+    //news_5 pull from DB
+    async news_detail({view}) {
+        const news_display = await Database.from("adds").select("*").orderBy('id','desc').limit(1)
+        console.log(news_display)
+        return view.render("/news_5" , {token , currentUsername , news_display})
+    }
+
     async add_news_comment({request , response}) {
         let cm_Date = new Date();
         let dd = String(cm_Date.getDate()).padStart(2, '0');
