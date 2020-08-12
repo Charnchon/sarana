@@ -1,0 +1,64 @@
+@layout("layout")
+@section("style-section")
+    {{ style("css/news")}}
+@endsection
+@section("content")
+    <div class="news-container">
+        <div class="news-header">
+            <h1>
+                <p>ผกก. John Wick ต้องไฟว้กับสตูดิโอเพื่อเก็บฉากน้องหมาตายไว้ สุดท้ายกลายเป็นฉากสุดบูม</p>
+            </h1>
+            <div class="news-header-underline"></div>
+        </div>
+        <div class="news-body">
+            <h2>
+                <p>John Wick กลายเป็นภาพยนตร์บู๊ระห่ำที่ทุกคนต่างให้ความสนใจในช่วงหลายปีให้หลังมานี้</p>
+                <p>ซึ่งเชื่อว่าฉากที่ทุกคนต่างจดจำกันได้เป็นอย่างดีก็คงจะเป็นฉากที่น้องหมาของขวัญชิ้นเดียวของคุณภรรยาที่เสียชีวิตของ John ถูกฆ่าตาย นั่นจึงเป็นชนวนแค้นของเขาให้เริ่มออกมาไล่ล่า</p>
+                <img src="https://www.catdumb.tv/wp-content/uploads/2020/05/John-Wick-And-Daisy-The-Dog.jpg">
+                <p>เรื่องราวนี้ถูกเล่าโดยผู้เขียนบท Derek Kolstad เขาเล่าว่าสองผู้กำกับ Chad Stahelski และ David Leitch ต้องเถียงกับสตูดิโอเพื่อเก็บฉากนี้เอาไว้</p>
+                <img src="https://www.catdumb.tv/wp-content/uploads/2020/05/John-Wick-1-Wallpaper.jpg">
+                <p>เนื่องจากทางสตูโออยากให้มันอยู่ในทิศทางที่เหมาะสมและอยากให้โฟกัสไปที่ชีวิตเกษียณแบบสั้นๆ ของ John Wick มากกว่า ทางสตูดิโอกล่าวว่า</p>
+                <p><h1>“ตัดบทหมาออกเถอะ โฟกัสแค่พวกนักฆ่าที่โผล่เข้ามาในตอนที่ JOHN WICK เกษียณดีกว่า”</h1></p>
+                <img src="https://www.catdumb.tv/wp-content/uploads/2020/05/D7FY85NUEAAWIsf.jpg">
+                <p>แต่แน่นอนค่ะว่าทางผู้กำกับไม่เห็นด้วย เพราะผู้เขียนบทก็คิดเหมือนกันว่าซีนนั้นมันเป็นตัวกระตุ้นที่สำคัญมากของ John Wick ที่ดึงเขากลับเข้าวงการได้ Derek กล่าวว่า</p>
+                <p><h1>“ถ้าไม่มีน้องหมามาเชื่อมโยงโดยปราศจากเรื่องราวพื้นฐานของตัวละครหลัก (JOHN)
+                    นอกจากนี้ยังต้องมีความคึกคะนองของตัวละคร (พวกกุ๊ยที่บุกเข้าบ้านของ JOHN) มาเป็นกุญแจสำคัญอีก"</h1></p>
+                <img src="https://www.catdumb.tv/wp-content/uploads/2020/05/tumblr_purqj8bIKa1xfbcb4o1_1280.png">
+                <p>และสำหรับสาเหตุการตายของเธอนั้น ก็เป็นเพราะเธอได้สูดเอาควันพิษที่เกิดจากน้ำมันดังกล่าวเข้าไปในปริมาณมาก ส่งผลให้เกิดโรคปอดบวม และนำไปสู่การเสียชีวิตในที่สุด</p>
+                <p><h1>"...เพราะจุดนี้ CHAD และ DAVE เลยต้องสู้เพื่อมันครับ
+                    สุดท้ายพวกเขาก็ชนะและพวกเขาก็ทำถูกแล้วด้วย...”</h1></p>
+                <img src="https://www.catdumb.tv/wp-content/uploads/2020/05/1413863573-8f66a95c57-o.jpg">
+                <p>จนสุดท้ายเมื่อภาพยนตร์เริ่มทดลองฉาย ฉากน้องหมาตายกลับกลายเป็นฉากที่ผู้ชมช็อกและชื่นชอบมันมาก</p>
+            </h2>
+        </div>
+        <div class="comment-underline"></div>
+        @section("comment")
+            <form method="POST" action="{{route('/news_1')}}">
+                <div class="comment-container">
+                    <h1>Comment</h1>
+                    <div class="inside-comment-container">
+                        @if(token == 0)
+                            <h2>Please Login First</h2>
+                        @else
+                            <h2>Sir. {{currentUsername}}</h2>
+                            {{ csrfField() }}
+                            <input type="text" name="cm_Content" placeholder="Add a public comment">
+                            <div class="comment-submit-button">
+                                <button type="submit">SUBMIT</button>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="comment-underline"></div>
+                <div class="another-comment">
+                    @each(comment in news_Comment)
+                    <div class="comment-box">
+                        <h1>{{comment.cm_Content}}</h1><h2>{{comment.cm_Date}}</h2><h2>{{comment.username}}</h2>
+                    </div>
+                    @endeach
+                </div>
+            </form>
+            <div class="comment-underline"></div>
+        @endsection
+    </div>
+@endsection
