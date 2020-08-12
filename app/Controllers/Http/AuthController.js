@@ -6,8 +6,10 @@ let currentUsername;
 
 class AuthController {
 
-    home({view}) {
-        return view.render("/home" , {token , currentUsername})
+    async home({view}) {
+        const Topic = await Database.from("adds").select("news_Topic","news_Date").where({id: 1})
+        const {news_Topic,news_Date } = Topic[0]
+        return view.render("/home" , {token , currentUsername, news_Topic , news_Date})
     }
 
     async login ({view}) {
@@ -56,7 +58,7 @@ class AuthController {
     }
     async addNews({request , response}) { 
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
-        await Database.from("new").insert({news_Topic , news_Content , news_Cg, news_Date}) 
+        await Database.from("adds").insert({news_Topic , news_Content , news_Cg, news_Date}) 
         return response.redirect("/home")
     }
 }
