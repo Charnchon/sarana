@@ -28,7 +28,7 @@
 // }
 
 const slideshow = document.querySelector('.slideshow');
-const slideshowPictures = document.querySelectorAll(".slideshow-pictures");
+const slideshowPictures = document.querySelectorAll(".slide-image");
 
 const firstButton = document.querySelector("#r1");
 const secondButton = document.querySelector("#r2");
