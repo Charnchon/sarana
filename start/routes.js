@@ -39,6 +39,8 @@ Route.get("/api/register" , "AuthController.registerUser")
 Route.get("/index" , "AuthController.index")
 Route.get("/slideshow" , "AuthController.slideshow")
 
+Route.on("/add-news" , "AuthController.addnews").render("add-news")
+
 Route.get("/addnews" , "AuthController.addnews")
 Route.post("/addnews" , "AuthController.addNews")
 
