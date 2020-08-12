@@ -63,6 +63,7 @@ textarea {
     outline: none;
     border: 2px solid rgb(216, 216, 216);
     margin-top: 10px;
+    padding: 10px 15px;
 }
 
 .submit-block {
