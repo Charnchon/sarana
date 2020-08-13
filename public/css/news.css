@@ -113,3 +113,11 @@
     justify-content: flex-end;
     font-size: 1.25rem;
 }
+
+.news-content-post {
+    word-wrap: break-word;
+}
+
+.news-date {
+    margin-top: 20px;
+}
