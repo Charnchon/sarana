@@ -9,6 +9,9 @@
         <div class="add-input-block">
             <form action="{{route('/add-news')}}" method="POST">
                 {{csrfField()}}
+                @if(token == 0)
+                            <h2>Please Login First</h2>
+                @else
                 <div class="input-lebel" >
                     BLOG NAME
                 </div>
@@ -34,7 +37,9 @@
                     <button class="add-submit">
                         POST
                     </button>
+                    
                 </div>
+                @endif
             </form>
         </div>
     </div>

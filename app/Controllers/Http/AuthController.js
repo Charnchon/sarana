@@ -65,7 +65,7 @@ class AuthController {
     }
     async addNews({request , response}) { 
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
-        await Database.from("adds").insert({news_Topic , news_Content , news_Cg, news_Date}) 
+        await Database.from("adds").insert({news_Topic , news_Content , news_Cg, news_Date }) 
         return response.redirect("/home")
     }
 
