@@ -55,10 +55,10 @@ Route.get("/api/register" , "AuthController.registerUser")
 Route.get("/index" , "AuthController.index")
 Route.get("/slideshow" , "AuthController.slideshow")
 
-Route.on("/add-news" , "AuthController.addnews").render("add-news")
+// Route.on("/add-news" , "AuthController.addnews").render("add-news")
 
-Route.get("/addnews" , "AuthController.addnews")
-Route.post("/addnews" , "AuthController.addNews")
+Route.get("/add-news" , "AuthController.addnews")
+Route.post("/add-news" , "AuthController.addNews")
 
 Route.get('/categories-world' , "AuthController.categories_world")
 Route.get('/categories-tech' , "AuthController.categories_tech")

@@ -61,7 +61,7 @@ class AuthController {
         return view.render("slideshow" , {token , currentUsername})
     }
     addnews({view}) {
-        return view.render("addnews" , {token , currentUsername})
+        return view.render("add-news" , {token , currentUsername})
     }
     async addNews({request , response}) { 
         const {news_Topic , news_Content , news_Cg, news_Date} = request.body;
