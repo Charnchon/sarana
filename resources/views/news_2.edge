@@ -35,8 +35,10 @@
                             <h2>Sir. {{currentUsername}}</h2>
                             {{ csrfField() }}
                             <input type="text" name="cm_Content" placeholder="Add a public comment">
-                            <div class="comment-submit-button">
-                                <button type="submit">SUBMIT</button>
+                            <div class="comment-submit-button-block">
+                                <div class="comment-submit-button">
+                                    <button class="nav-submit-component" type="submit">SUBMIT</button>
+                                </div>
                             </div>
                         @endif
                     </div>
