@@ -12,6 +12,7 @@
     <div class="categories">
         <div class="type-articles-block">
             <div class="news-component">
+                <a href="/news_5">
                 @each(add in news_display)
                 <div class="news-content-show">
                     <img class="news-content-image"src="https://i.pinimg.com/originals/11/2c/07/112c0718eeafdb00bebc9874376cd6b8.jpg" >
@@ -25,7 +26,8 @@
                         {{ add.news_Date }}
                     </div>
                 </div>
-                @endeach                      
+                @endeach        
+                </a>              
             </div>
         </div>
     </div>
