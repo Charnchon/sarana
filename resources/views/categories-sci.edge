@@ -9,22 +9,24 @@
         Sci
     </div>
 
-    <div class="type-articles-block">
-        <div class="news-component">
-            @each(add in news_display)
-            <div class="news-content-show">
-                <img class="news-content-image"src="https://i.pinimg.com/originals/2b/1d/96/2b1d96ad5ab089ffba2e1bf9ea6f75a7.jpg" >
-                <div class="news-content-lebel">
-                    {{ add.news_Topic }}
+    <div class="categories">
+        <div class="type-articles-block">
+            <div class="news-component">
+                @each(add in news_display)
+                <div class="news-content-show">
+                    <img class="news-content-image"src="https://i.pinimg.com/originals/11/2c/07/112c0718eeafdb00bebc9874376cd6b8.jpg" >
+                    <div class="news-content-lebel">
+                        {{ add.news_Topic }}
+                    </div>
+                    <div class="news-content" >
+                        {{ add.news_Content }}
+                    </div>
+                    <div class="news-content-date">
+                        {{ add.news_Date }}
+                    </div>
                 </div>
-                <div class="news-content" >
-                    {{ add.news_Content }}
-                </div>
-                <div class="news-content-date">
-                    {{ add.news_Date }}
-                </div>
+                @endeach                      
             </div>
-            @endeach          
         </div>
     </div>
 
